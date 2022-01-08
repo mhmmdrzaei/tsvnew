@@ -9,9 +9,6 @@
 
 @import 'normalize';
 @import 'typography';
-@import 'navigation';
-@import 'sidebar';
-@import 'comments';
 @import 'footer';
 /*
 ====================================
@@ -19,28 +16,31 @@ Default Styling
 ====================================
 */
 
+@font-face {
+  font-family: 'TSV Sans';
+  src: url('fonts/TSVSans.otf');
+  font-weight: normal;
+      font-style: normal; 
+}
+
+@mixin fontSize($sizeValue){
+    font-size: $sizeValue * 1px;
+    font-size: ($sizeValue/10) * 1rem;
+}
+
+body {
+	font-family: 'TSV Sans', sans-serif;
+}
+.flex {
+	display: flex;
+	flex-flow: row wrap;
+}
+
 img {
 	max-width: 100%;
 }
 
-body {
-	color: #333;
-}
 
-.container {
-	max-width: 1200px;
-	margin: 0 auto;
-}
-
-.content {
-	float: left;
-	width: 65%;
-	margin-right: 5%;
-}
-
-.full {
-	width: 100%;
-}
 
 
 

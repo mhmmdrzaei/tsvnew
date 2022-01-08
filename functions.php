@@ -47,7 +47,10 @@ function project_styles(){
 	wp_enqueue_style('style', get_stylesheet_uri() );
 
 	wp_enqueue_style('fontawesome', '//use.fontawesome.com/releases/v5.0.7/css/all.css');
+
+	wp_enqueue_style('mailchimp', '//cdn-images.mailchimp.com/embedcode/naked-10_7.css');
 }
+
 
 add_action( 'wp_enqueue_scripts', 'project_styles');
 /* Add all our JavaScript files here.
