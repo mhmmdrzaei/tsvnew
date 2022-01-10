@@ -311,6 +311,55 @@ function tsv_tags() {
 	wp_reset_postdata();
 }
 
+
+// Register a slider block.
+add_action('acf/init', 'my_register_blocks');
+function my_register_blocks() {
+
+    // check function exists.
+    if( function_exists('acf_register_block_type') ) {
+
+        // register a  block.
+        acf_register_block_type(array(
+            'name'              => 'membership_info_text',
+            'title'             => __('Announcement Text'),
+            'description'       => __('Use for membership announcemnts or other parts of site'),
+            'render_template'   => 'template-parts/blocks/membership-info-text/membership-info-text.php',
+			'category'          => 'formatting',
+			'icon' 				=> 'button',
+			'align'				=> 'full',
+			'enqueue_assets' 	=> function(){
+				// wp_enqueue_style( 'slick', 'http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', array(), '1.8.1' );
+				// wp_enqueue_style( 'slick-theme', 'http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css', array(), '1.8.1' );
+				// wp_enqueue_script( 'slick', 'http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), '1.8.1', true );
+				// wp_enqueue_style('bxslider', 'https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css');
+				// wp_enqueue_script(
+				// 	'bxslidejs',
+				// 	"https" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js",array('jquery'), '4.2.15', true 
+				// );
+
+				wp_enqueue_style( 'block-membership-info-text', get_template_directory_uri() . '/template-parts/blocks/membership-info-text/membership-info-text.css', array(), '1.0.0' );
+				wp_enqueue_script( 'block-membership-info-text', get_template_directory_uri() . '/template-parts/blocks/membership-info-text/membership-info-text.js', array(), '1.0.0', true );
+			  },
+        ));
+
+                acf_register_block_type(array(
+                    'name'              => 'membership_option',
+                    'title'             => __('Options box with pricing'),
+                    'description'       => __('Use for membership pricing ption or other parts of site'),
+                    'render_template'   => 'template-parts/blocks/membership_option/membership_option.php',
+        			'category'          => 'formatting',
+        			'icon' 				=> 'button',
+        			'align'				=> 'full',
+        			'enqueue_assets' 	=> function(){
+
+        				wp_enqueue_style( 'block-membership_option', get_template_directory_uri() . '/template-parts/blocks/membership_option/membership_option.css', array(), '1.0.0' );
+        				wp_enqueue_script( 'block-membership_option', get_template_directory_uri() . '/template-parts/blocks/membership_option/membership_option.js', array(), '1.0.0', true );
+        			  },
+                ));
+    }
+}
+
 /* is_blog() - checks various conditionals to figure out if you are currently within a blog page */
 function is_blog () {
 	global  $post;
