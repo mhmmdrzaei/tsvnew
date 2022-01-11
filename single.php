@@ -13,6 +13,7 @@
     </section>
     <section class="tags">
       <?php tsv_tags(); ?>
+      <?php project_posted_in(); ?>
     </section>
   </section>
   <div id="nav-below" class="navigation">
