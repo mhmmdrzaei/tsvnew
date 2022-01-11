@@ -1,6 +1,8 @@
-<footer>
-  <section class="footerContainer">
+<footer>    
+  
+  <main class="footerContainer">
     <section class="contact">
+      <h2>Contact</h2>
       <section class="galleryAddress">
         <?php the_field('gallery_address', 'options'); ?>
       </section>
@@ -23,10 +25,20 @@
         <?php endif; ?>
       </section>
     </section>
+    
     <section class="landAcknowledgement">
+      <a href="<?php the_field('land_acknowledgement_page_links_to', 'options'); ?>">
+      <h2>land acknowledgement</h2>
       <?php  the_field('land_acknowledgement', 'options') ;?>
+      </a>
     </section>
+    
     <section class="footermenu">
+      <h2>get involved</h2>
+      <?php wp_nav_menu( array(
+          'container' => false,
+          'theme_location' => 'footer'
+        )); ?>
     </section>
     <section class="mainlingList">
       <div id="mc_embed_signup">
@@ -58,7 +70,7 @@
     </section>
     <?php if(get_field('funder_logos','options')): ?>
     <section class="funders">
-
+      <h2>funders</h2>
         <?php
           $slides = get_field('funder_logos','options');
           $slide_amount = count($slides);
@@ -72,7 +84,7 @@
           
     </section>
     <?php endif; ?>
-  </section>
+  </main>
 </footer>
 
 <script>

@@ -10,6 +10,7 @@
 @import 'normalize';
 @import 'typography';
 @import 'footer';
+@import 'logo';
 /*
 ====================================
 Default Styling
@@ -30,18 +31,143 @@ Default Styling
 
 body {
 	font-family: 'TSV Sans', sans-serif;
+	background: #fffeb5;
+	@include fontSize(8);
+}
+main {
+	max-width: 1440px;
+	padding: 2.5%;
+	margin: 0 auto;
 }
 .flex {
 	display: flex;
 	flex-flow: row wrap;
+}
+h1 {
+	font-size: 2vw;
+}
+h2 {
+	@include fontSize(9);
+	font-weight: 300;
+	text-transform:uppercase;
+}
+a {
+	text-decoration: none;
+	color: black;
 }
 
 img {
 	max-width: 100%;
 }
 
+//header
+.headerMain {
+	@extend .flex;
+	button {
+		@include fontSize(9);
+		text-transform: uppercase;
+		height: 30px;
+		background: white;
+		border: 1px solid black;
+		border-left: 0;
+		outline: none;
+		width: 16%;
+	}
+}
+.inspire {
+	position: relative;
+	width: 45%;
+	border: 1px solid black;
+	background: white;
+	h1 {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		margin: 0 auto;
+		max-width: 200px;
+		text-align: center;
+	}
+}
+//menu 
+#menu-header-menu {
+	@include fontSize(9);
+	list-style: none;
+	display: flex;
+	margin: 2.5% 0 0;
+	padding: 0;
+	justify-content: space-between;
+	width: 100%;
+	li {
+		border: 1px solid black;
+		background: white;
+		text-transform: uppercase;
+		padding: 0.5vw;
+		width: 15.6vw;
+		text-align: center;
+		border-left:none;
+		&:hover {
+			background:#eb5858;
+		}
+	}
+	li:nth-child(1) {
+		border-left:1px solid black;
+	}
+}
+
+ul.sub-menu {
+	list-style: none;
+	margin: 0 -0.6vw 0;
+	padding: 0.6vw 0 0;
+	position: absolute;
+	li {
+		border-top: none !important;
+		border-left: 1px solid black !important;
+	}
+	// left: -0.5vw;
+}
+
+#menu-header-menu li  > ul.sub-menu {
+  display: none;
+}
+#menu-header-menu li:hover > ul.sub-menu {
+  display: block;
+}
 
 
+//footer 
+
+.footerContainer {
+	@extend .flex;
+	justify-content:space-between;
+	h2 {
+		text-align: center;
+		background: #a3a1e9;
+		padding: .5vw 0;
+		border-bottom: 1px solid black;
+		width: 100%;
+		margin-top: 0;
+
+	}
+	.contact,.landAcknowledgement,.footermenu,.mainlingList {
+		width: 24%;
+		border: 1px solid black;
+	}
+}
+.funders {
+	@extend .flex;
+	background:white;
+	border: 1px solid black;
+	justify-content:space-around;
+	align-items: center;
+	img {
+		width: 25%;
+		height: fit-content;
+	}
+	h2 {
+
+	}
+}
 
 
 

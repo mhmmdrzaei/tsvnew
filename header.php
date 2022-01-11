@@ -14,18 +14,22 @@
 
 <body <?php body_class(); ?>>
 
-<header>
-  <div class="container">
-    <h1>
-      <a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name', 'display' ); ?>" rel="home">
-        <?php bloginfo( 'name' ); ?>
-      </a>
-    </h1>
-
+<header >
+  <main class="headerMain">
+    <a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name', 'display' ); ?>" rel="home">
+      <?php require 'template-parts/logo.php'; ?>
+    </a>
+    <section class="inspire">
+      <h1> A SPACE<br>TO RE-IMAGINE<br>MEDIA ARTS</h1>
+    </section>
+    <button class="access">Accessibility</button>
+    <section class="accessMenu"></section>
     <?php wp_nav_menu( array(
-      'container' => false,
-      'theme_location' => 'primary'
-    )); ?>
-  </div> <!-- /.container -->
+        'container' => false,
+        'theme_location' => 'primary'
+      )); ?>
+
+
+  </main>
 </header><!--/.header-->
 

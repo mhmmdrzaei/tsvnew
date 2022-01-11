@@ -1,0 +1,51 @@
+@mixin fontSize($sizeValue){
+    font-size: $sizeValue * 1px;
+    font-size: ($sizeValue/10) * 1rem;
+}
+
+.logo {
+	.shapes {
+		display: flex;
+		.triangleUp{
+			width: 12vw;
+			    border-left: 6vw solid transparent;
+			    border-right: 6vw solid transparent;
+			    border-bottom: 12vw solid #000;
+		}
+		.square {
+			width: 12.1vw;
+			height: 12vw;
+			background: black;
+
+		}
+		.triangleDown{
+			width: 12vw;
+	     	border-left: 6vw solid transparent;
+	     	border-right: 6vw solid transparent;
+	      	border-top: 12vw solid #000;
+		}
+	}
+	.words {
+		display: flex;
+		div {
+			font-size: 2vw;
+			text-align: center;
+			padding: 0.7vw 1vw;
+			background: #fff;
+			border: 1px solid #000;
+			text-transform: uppercase;
+			width: 12vw;
+			h1 {
+				margin: 0;
+			}
+		}
+		.squareWord{
+			border-left: none;
+			border-right: none;
+		}
+		.video {
+			width: 12.1vw;
+			border-right: none;
+		}
+	}
+}
