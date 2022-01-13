@@ -29,7 +29,9 @@
     <section class="landAcknowledgement">
       <a href="<?php the_field('land_acknowledgement_page_links_to', 'options'); ?>">
       <h2>land acknowledgement</h2>
-      <?php  the_field('land_acknowledgement', 'options') ;?>
+      <section class="acknowledgementInner">
+        <?php  the_field('land_acknowledgement', 'options') ;?>
+      </section>
       </a>
     </section>
     
@@ -46,16 +48,16 @@
           <div id="mc_embed_signup_scroll">
         <h2>Newsletter</h2>
       <div class="mc-field-group">
-        <label for="mce-EMAIL">Email Address </label>
-        <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-      </div>
-      <div class="mc-field-group">
         <label for="mce-FNAME">First Name </label>
-        <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+        <input type="text" value="" name="FNAME" class="" id="mce-FNAME" placeholder="First Name ">
       </div>
       <div class="mc-field-group">
         <label for="mce-LNAME">Last Name </label>
-        <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+        <input type="text" value="" name="LNAME" class="" id="mce-LNAME" placeholder="Last Name">
+      </div>
+      <div class="mc-field-group">
+        <label for="mce-EMAIL">Email Address </label>
+        <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email Address">
       </div>
         <div id="mce-responses" class="clear">
           <div class="response" id="mce-error-response" style="display:none"></div>

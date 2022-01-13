@@ -1,9 +1,10 @@
 <?php get_header();  ?>
 
-<main>
+<main class="membershipPage">
   
   <?php // Start the loop ?>
   <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+  <h1 class="pageTitle"><?php the_title() ;?></h1>
     <?php if( have_rows('membership_page_layout_options') ): ?>
         <?php while( have_rows('membership_page_layout_options') ): the_row(); ?>
           <?php if( get_row_layout() == 'info_text_box' ): ?>
@@ -19,7 +20,7 @@
 
                       ?>
                       <section class="membershipOptionBox">
-                        <h3><?php the_sub_field('membership_header'); ?></h3>
+                        <h2><?php the_sub_field('membership_header'); ?></h2>
                         <section class="membershipBoxInfo">
                           <?php the_sub_field('membership_option_info'); ?>
                         </section>
@@ -34,7 +35,6 @@
 
             <?php elseif( get_row_layout() == 'membership_benefits_table' ): ?>
               <section class="membershipOptionsTable">
-                <?php the_sub_field('membership_benefits_table_table'); ?>
                 <?php
 
                 $table = get_sub_field( 'membership_benefits_table_table' );

@@ -32,19 +32,39 @@ Default Styling
 body {
 	font-family: 'TSV Sans', sans-serif;
 	background: #fffeb5;
-	@include fontSize(8);
+	@include fontSize(9);
+	outline: none;
 }
 main {
 	max-width: 1440px;
-	padding: 2.5%;
+	padding: 0 2.5%;
 	margin: 0 auto;
+}
+.headerMain, .footerContainer {
+	padding-top: 2.5%;
+}
+.footerContainer {
+	padding-bottom: 2.5%;
 }
 .flex {
 	display: flex;
 	flex-flow: row wrap;
 }
 h1 {
-	font-size: 2vw;
+	text-transform: uppercase;
+	@include fontSize(9);
+}
+.pageTitle {
+
+	margin: 0 0 2.5%;
+	padding: 5px 0;
+	text-align: center;
+	width: 100%;
+	background: #eb5858;
+	border-bottom: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+
 }
 h2 {
 	@include fontSize(9);
@@ -87,6 +107,7 @@ img {
 		margin: 0 auto;
 		max-width: 200px;
 		text-align: center;
+		font-size: 1.8vw;
 	}
 }
 //menu 
@@ -102,8 +123,9 @@ img {
 		border: 1px solid black;
 		background: white;
 		text-transform: uppercase;
-		padding: 0.5vw;
-		width: 15.6vw;
+		padding: 5px;
+		width:150px;
+		width: 15.7vw;
 		text-align: center;
 		border-left:none;
 		&:hover {
@@ -113,12 +135,15 @@ img {
 	li:nth-child(1) {
 		border-left:1px solid black;
 	}
+	.current-menu-parent,.current-menu-item {
+		background: #eb5858;
+	}
 }
 
 ul.sub-menu {
 	list-style: none;
-	margin: 0 -0.6vw 0;
-	padding: 0.6vw 0 0;
+	margin: 0 -6px 0;
+	padding: 6px 0 0;
 	position: absolute;
 	li {
 		border-top: none !important;
@@ -143,18 +168,77 @@ ul.sub-menu {
 	h2 {
 		text-align: center;
 		background: #a3a1e9;
-		padding: .5vw 0;
+		padding: 5px 0;
 		border-bottom: 1px solid black;
 		width: 100%;
-		margin-top: 0;
+		margin: 0;
 
 	}
 	.contact,.landAcknowledgement,.footermenu,.mainlingList {
 		width: 24%;
 		border: 1px solid black;
+		background: white;
+		height: fit-content;
 	}
 }
+.galleryAddress, .officeHours, .galleryHours {
+	padding: 10px;
+	border-bottom: 1px solid black;
+}
+.linksEach {
+	list-style: none;
+	padding: 10px;
+	margin: 0;
+	@extend .flex;
+	@include fontSize(15);
+	li {
+		margin-right: 5px;
+	}
+}
+.acknowledgementInner {
+	padding: 10px;
+}
+#menu-footer-menu {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	text-transform: uppercase;
+	li {
+		padding: 5px;
+		border-bottom: 1px solid black;
+		&:hover {
+			background:#eb5858;
+		}
+	}
+	li:last-child {
+		border-bottom: none;
+	}
+}
+
+.mc-field-group {
+	label {
+		display: none;
+	}
+	input {
+		width: 100%;
+		border: none;
+		border-bottom: 1px solid;
+		border-radius: 0;
+		padding: 5px;
+		outline:none;
+	}
+}
+	.button {
+		border: none;
+		width: 100%;
+		text-align: center;
+		text-transform: uppercase;
+		background: #75fb4c;
+		padding: 5px;
+	}
 .funders {
+	margin-top: 2.5%;
 	@extend .flex;
 	background:white;
 	border: 1px solid black;
@@ -164,12 +248,79 @@ ul.sub-menu {
 		width: 25%;
 		height: fit-content;
 	}
-	h2 {
+}
+// memebership
+.membershipPage {
+	@extend .flex;
+	justify-content:space-between;
+}
+.membershipInfoBox {
+	width: 100%;
+	padding: 10px;
+	background: white;
+	border: 1px solid black;
+	margin-bottom: 2.5%;
 
+}
+.membershipOptionBox {
+	width:49%;
+	height: fit-content;
+	margin-bottom:2.5%;
+	border: 1px solid black;
+	h2 {
+		text-align: center;
+		background: #a3a1e9;
+		padding: 5px 0;
+		border-bottom: 1px solid black;
+		width: 100%;
+		margin: 0;
+
+	}
+	.membershipBoxInfo {
+		background: white;
+		padding: 5px;
+		border-bottom: 1px solid black;
+	}
+	.membershipBoxPrice {
+		background: #75fb4c;
+		padding: 5px;
+		text-align: center;
 	}
 }
 
+.membershipOptionsTable {
+	margin-bottom: 2.5%;
+	width: 100%;
 
+	table {
+		width: 100%;
+		text-align: center;
+		thead tr th:nth-child(n+2) {
+			background: #a3a1e9;
+			padding: 5px;
+			border-top: 1px solid black;
+			border-left: 1px solid black;
+		}
+		thead tr th:last-child {
+			border-right: 1px solid black;
+		}
+		// thead tr th::first-line {
+		// 	background: #a3a1e9;
+		// 	width: 100%;
+		// 	padding: 1px 5px;
+		// }
+		tbody tr td:nth-child(1){
+			text-align: left;;
+		}
+		tbody{
+			// border: 1px solid black;
+			background: white;
+			tr td {
+				border: 1px solid black;
+			}
+		}
+	}
+}
 
 
 
