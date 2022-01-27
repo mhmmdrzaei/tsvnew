@@ -80,7 +80,24 @@ h2, h3 {
 a {
 	text-decoration: none;
 	color: black;
+	border-bottom: 2px solid #75fb4c;
+	&:hover {
+		border-bottom: 2px solid #eb5858;
+	}
 }
+.menu-item a, .logoLink, h2 a, #archiveEach li a {
+	border-bottom: 0;
+	&:hover {
+		border-bottom: 0;
+	}
+}
+a.ctaLink {
+		border-bottom: 1px solid black;
+	&:hover {
+		border-bottom: 1px solid black;
+	}
+}
+
 
 img {
 	width: 100%;
@@ -135,7 +152,7 @@ img {
 		text-transform: uppercase;
 		padding: 5px;
 		width:150px;
-		width: 15.7vw;
+		width: 16vw;
 		text-align: center;
 		border-left:none;
 		&:hover {
@@ -179,6 +196,7 @@ ul.sub-menu {
 		text-align: center;
 		background: #a3a1e9;
 		padding: 5px 0;
+		border: 0;
 		border-bottom: 1px solid black;
 		width: 100%;
 		margin: 0;
@@ -276,12 +294,16 @@ ul.sub-menu {
 	width:49%;
 	height: fit-content;
 	margin-bottom:2.5%;
-	border: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
 	h2 {
 		text-align: center;
 		background: #a3a1e9;
 		padding: 5px 0;
 		border-bottom: 1px solid black;
+		border-left: 0;
+		border-right: 0;
 		width: 100%;
 		margin: 0;
 
@@ -424,10 +446,9 @@ ul.sub-menu {
 		column-count:3;
 		column-gap: 0;
 		list-style: none;
-		border-right: 1px solid black;
-		background: white;
+		border-left: 1px solid black;
 		
-		margin: 0;
+		margin: 0 0 20px;
 		padding: 0;
 		
 		// padding: 20px;
@@ -436,8 +457,12 @@ ul.sub-menu {
 		}
 		li {
 			border-bottom: 1px solid black;
-			border-left: 1px solid black;
+			border-right: 1px solid black;
 			padding: 10px;
+			-webkit-column-break-inside: avoid;
+			  page-break-inside: avoid;
+			  break-inside: avoid;
+			  background: white;
 			// height: 60px;
 			
 		}
@@ -449,4 +474,119 @@ ul.sub-menu {
 			}
 		}
 	}
+//single page 
+.textBoxStyling {
+	background: white;
+	border-left:1px solid black;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+	p {
+		padding: 0 20px;
+	}
+	h4,h5,h6 {
+		padding: 0 20px;
+		text-transform: uppercase;
+		@include fontSize(9);
+		margin: 10px 0;
 
+	}
+	ul {
+		padding: 0 40px;
+	}
+	h2,h3 {
+		border-left: 0;
+		border-right:0;
+	}
+}
+.pageSingleContentBox {
+	@extend .flex;
+	.pageSignleImage {
+		width: 50%;
+		img {
+			border:1px solid black;
+		}
+	}
+	.pageSingleContentHalf {
+		width: 50%;
+		@extend .textBoxStyling;
+
+
+
+	}
+}
+.pageSingleContent {
+	width: 100%;
+	
+	border-top:0;
+	@extend .textBoxStyling;
+}
+//staff and board
+
+.sbEach {
+	@extend .flex;
+	margin-bottom: 20px;
+	.sbImage {
+		width: 25%;
+		img {
+			border-left:1px solid black;
+			border-bottom:1px solid black;
+			border-right:1px solid black;
+		}
+		
+	}
+	.sbBio {
+		width: 75%;
+		@extend .textBoxStyling;
+		height: fit-content;
+	}
+	.sbBioFull {
+		width: 100%;
+		@extend .textBoxStyling;
+	}
+}
+.bodyText{
+	@extend .textBoxStyling;
+	border-top: 1px solid black
+}
+
+//workshops page
+
+.currentWorkshop {
+	 @extend .flex;
+	 .DescWSHome {
+	 	width: 40%;
+	 	@extend .textBoxStyling;
+	 	padding: 10px;
+	 }
+	 .instructorWSHome {
+	 }
+	 .instructorWSHome, .locationWSHome, .dateTimeWSHome{
+	 		@extend .textBoxStyling;
+	 		border: 1px solid black;
+	 		border-top:0;
+	 		padding: 10px;
+	 		text-align: center;
+	 		height: fit-content;
+	 		width: 18%;
+	 }
+	 .openWSHome {
+	 	text-transform: uppercase;
+	 	background: #75fb4c;
+	 	width: 6%;
+	 	text-align: center;
+	 	padding: 10px;
+	 	height: fit-content;
+	 	border: 1px solid black;
+	 	border-top:0;
+	 }
+	 	 .fullWSHome {
+	 	text-transform: uppercase;
+	 	background: #eb5858;
+	 	width: 6%;
+	 	text-align: center;
+	 	padding: 10px;
+	 	height: fit-content;
+	 	border: 1px solid black;
+	 	border-top:0;
+	 }
+}

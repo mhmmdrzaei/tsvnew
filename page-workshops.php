@@ -1,21 +1,32 @@
 <?php get_header();  ?>
-
+<?php $today = current_time('Ymd'); ?>
 <main>
   <h1 class="pageTitle"><?php the_title(); ?></h1>
   <?php // Start the loop ?>
 
-    <?php $args = array( 'post_type' => 'production', 
-          // 'meta_key'      => 'start_date',
-          // 'orderby'      => 'meta_value',
-           'order'       => 'DESC',
-          // 'orderby' => array(
-          //    'meta_value_num' => 'desc',
-          //    'post_date' => 'desc'
-          'orderby'    => array(
-                'start_date' => 'DSC',
-                'post_date' => 'desc'
-              ),
-          'posts_per_page' => -1 );
+    <?php $args = array( 
+      'post_type' => array('workshops'),
+          'meta_query' => array(
+            'relation' => 'AND',
+          'start_clause' => array(
+                'key'   => 'date_start_workshop',
+                'compare' => '>=',
+                'value'   => $today
+            ),
+            'end_clause' => array(
+                'key'   => 'date_end_workshop',
+                'compare' => '>=',
+                'value'   => $today
+            )
+          ),
+          'orderby' => array(
+              'meta_value_num' => 'asc',
+              'post_date' => 'desc'
+          ),
+          'posts_per_page' => -1
+          // 'orderby' => 'meta_value_num',
+          // 'order' => 'asc'
+ );
       query_posts( $args ); // hijack the main loop
 
       if ( ! have_posts() ) : ?>
@@ -23,7 +34,7 @@
   <article id="post-0" class="fullwidthpost" >
     <h2 class="entry-title">Not Found</h2>
      <section class="excerptPosts fullwidthexcerpts">
-      <p>Apologies, but no results were found!</p>
+      <p>Apologies, there are no workshops planned at this time.</p>
     </section><!-- .entry-content -->
   </article><!-- #post-0 -->
 
@@ -31,47 +42,50 @@
 <?php // if there are posts, Start the Loop. ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
-
-    <article id="post-<?php the_ID(); ?>" class="fullwidthpost">
+  <a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
+    <article id="post-<?php the_ID(); ?>" class="currentWorkshop">
       <h2 class="entry-title">
-        <a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
           <?php the_title(); ?>
-        </a>
       </h2>
-     <?php if ( has_post_thumbnail() ) { ?>
-
-      <figure class="sideImagePosts">
-        <?php the_post_thumbnail('large');?>
-      </figure>
-      <section class="excerptPosts">
-    <?php }else {; ?>
-    <section class="excerptPosts fullwidthexcerpts">
-   <?php  };?>
-     <?php the_excerpt('Continue Reading'); ?>
-     <section class="ctaInternal">
-       <?php if( have_rows('cta_links' ) ): ?>
-           <?php while( have_rows('cta_links') ): the_row(); 
-
-               ?>
-               <?php $linkLable = get_sub_field('link_label_Programming'); ?>
-               <?php if( have_rows('link_package_programming') ): ?>
-                   <?php while( have_rows('link_package_programming') ): the_row();
-                  $externalLink = get_sub_field('external_link_programming');
-                   $internalLink = get_sub_field('internal_link_programming');
-                     ?>
-                    <a class="ctaLink" href="<?php the_sub_field('internal_link_programming') ?><?php the_sub_field('external_link_programming') ?>"><?php echo $linkLable ;?></a>
-    
-
-                  <?php endwhile; ?>
-              <?php endif; ?> 
-            <?php endwhile; ?>
-          <?php endif; ?>     
-     </section>
-    </section>
-
-    </article><!-- #post-## -->
-
-
+      <section class="DescWSHome">
+        <?php the_field('brief_description_workshop'); ?>
+      </section>
+      <section class="instructorWSHome">
+        <?php the_field('instructor_workshops'); ?>
+      </section>
+      <section class="locationWSHome">
+        <?php if( have_rows('location_workshps' ) ): ?>
+            <?php while( have_rows('location_workshps') ): the_row();  ?>
+            <?php the_sub_field('location_name') ?>
+          <?php endwhile; ?>
+        <?php endif; ?>
+      </section>
+      <section class="dateTimeWSHome">
+        <?php 
+            $startDate = get_field('date_start_workshop');
+            $endDate = get_field('date_end_workshop');
+            if( !empty( $endDate ) ): ?>
+               <?php the_field('date_start_workshop');?> - <?php the_field('date_end_workshop'); ?><br>
+            <?php else: ; ?>
+             <?php the_field('date_start_workshop');?></br>
+            <?php endif; ?>
+              <?php the_field('time_start_workshop'); ?> - <?php the_field('time_end_workshop'); ?>
+      </section>
+     
+        <?php
+        $field = get_field_object('registration_open_or_closed');
+        $value = $field['value'];
+        if( $value === 'Open' ): ?>
+       <section class="openWSHome">
+        <?php the_field('registration_open_or_closed'); ?>
+      </section>
+       <?php else: ; ?>
+      <section class="fullWSHome">
+        <?php the_field('registration_open_or_closed'); ?>
+      </section>
+      <?php endif; ?>
+    </article>
+   </a>
 <?php endwhile; // End the loop. Whew. ?>
 
 <?php // Display navigation to next/previous pages when applicable ?>
