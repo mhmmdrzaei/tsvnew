@@ -16,7 +16,8 @@
 
 <header >
   <main class="headerMain">
-    <a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name', 'display' ); ?>" rel="home">
+    <section class="headerInner">
+      <a  class="logoLink"href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name', 'display' ); ?>" rel="home">
       <?php require 'template-parts/logo.php'; ?>
     </a>
     <section class="inspire">
@@ -24,6 +25,7 @@
     </section>
     <button class="access">Accessibility</button>
     <section class="accessMenu"></section>
+    </section>
     <?php wp_nav_menu( array(
         'container' => false,
         'theme_location' => 'primary'

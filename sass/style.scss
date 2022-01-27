@@ -70,6 +70,12 @@ h2, h3 {
 	@include fontSize(9);
 	font-weight: 300;
 	text-transform:uppercase;
+	text-align: center;
+	background: #a3a1e9;
+	padding: 5px 0;
+	border: 1px solid black;
+	width: 100%;
+	margin: 0;
 }
 a {
 	text-decoration: none;
@@ -77,13 +83,15 @@ a {
 }
 
 img {
-	max-width: 100%;
+	width: 100%;
 	height: auto;
 }
 
 //header
 .headerMain {
-	@extend .flex;
+
+	.headerInner {
+	display: flex;
 	button {
 		@include fontSize(9);
 		text-transform: uppercase;
@@ -92,7 +100,8 @@ img {
 		border: 1px solid black;
 		border-left: 0;
 		outline: none;
-		width: 16%;
+		width: 18%;
+	}
 	}
 }
 .inspire {
@@ -326,18 +335,30 @@ ul.sub-menu {
 .homepageMain {
 	@extend .flex;
 	justify-content:space-between;
-	h3 {
+	h2 {
 		text-align: center;
 		background: #a3a1e9;
 		padding: 5px 0;
 		border-top: 1px solid #000;
 		border-left: 1px solid #000;
 		border-right: 1px solid #000;
+		border-bottom:none;
 		width: 100%;
 		margin: 0;
 	}
 }
 .fullwidthpost {
+	h2 {
+		text-align: center;
+		background: #a3a1e9;
+		padding: 5px 0;
+		border-top: 1px solid #000;
+		border-left: 1px solid #000;
+		border-right: 1px solid #000;
+		border-bottom:none;
+		width: 100%;
+		margin: 0;
+	}
 	@extend .flex;
 	width: 100%;
 	margin-top: 20px;
@@ -355,6 +376,9 @@ ul.sub-menu {
 		height: fit-content;
 		padding: 0 20px 0px;
 	}
+	.fullwidthexcerpts {
+	width: 100%;
+}
 }
 .ctaLink {
 	background: #75fb4c;
@@ -363,6 +387,8 @@ ul.sub-menu {
 	text-transform: uppercase;
 	margin: 0 20px 15px 0;
 }
+
+
 .smallWidthContent {
 	width: 32%;
 	margin-top: 20px;
@@ -391,3 +417,36 @@ ul.sub-menu {
 	margin-top: 20px;
 	padding: 0 10px
 }
+//archives
+.archiveMain {
+
+	ul {
+		column-count:3;
+		column-gap: 0;
+		list-style: none;
+		border-right: 1px solid black;
+		background: white;
+		
+		margin: 0;
+		padding: 0;
+		
+		// padding: 20px;
+		text-align: center;
+
+		}
+		li {
+			border-bottom: 1px solid black;
+			border-left: 1px solid black;
+			padding: 10px;
+			// height: 60px;
+			
+		}
+		.moreThanOne {
+			column-count:1;
+			column-gap: 0;
+			li {
+
+			}
+		}
+	}
+

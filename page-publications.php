@@ -1,11 +1,10 @@
 <?php get_header();  ?>
 
 <main>
-  <h1 class="pageTitle">Past Programming</h1>
+  <h1 class="pageTitle"><?php the_title(); ?></h1>
   <?php // Start the loop ?>
 
-    <?php $args = array( 'post_type' => 'programming', 
-          'category_name' => 'programming-archive',
+    <?php $args = array( 'post_type' => 'publications', 
           // 'meta_key'      => 'start_date',
           // 'orderby'      => 'meta_value',
            'order'       => 'DESC',

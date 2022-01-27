@@ -12,8 +12,24 @@ $(function(){
 	error: function () { },
 	}).then(function(res) {
   console.log(res);
-});
 
 
 });
+//   if($('ul#archiveEach').children.length === 1) { 
+//     $("ul#archiveEach li").css("background", "#F00");
+//   }
 
+
+$('ul#archiveEach').each(function() {
+  var $this = $(this);
+  if ($this.find('li').length < 2) { //if looking for direct descendants then do .children('div').length
+      $this.addClass('moreThanOne');
+  }
+});
+});
+// var each = document.getElementById('archiveEach').getElementsByTagName('li');
+
+
+// $(each).length >= 1 {
+// 	$('.archiveMain').find('ul').addClass('more');
+// };

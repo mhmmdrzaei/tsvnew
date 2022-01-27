@@ -1,7 +1,7 @@
 <?php get_header();  ?>
 
 <main>
-  
+  <h1 class="pageTitle"><?php the_title(); ?></h1>
   <?php // Start the loop ?>
 
     <?php $args = array( 'post_type' => 'programming', 
@@ -21,38 +21,65 @@
 
       if ( ! have_posts() ) : ?>
 
-        <article id="post-0" class="post error404 not-found">
-          <h1 class="entry-title">Not Found</h1>
-          <section class="entry-content">
-            <p>Apologies, but no results were found!</p>
-          </section><!-- .entry-content -->
-        </article><!-- #post-0 -->
+  <article id="post-0" class="fullwidthpost" >
+    <h2 class="entry-title">Not Found</h2>
+     <section class="excerptPosts fullwidthexcerpts">
+      <p>Apologies, but no results were found!</p>
+    </section><!-- .entry-content -->
+  </article><!-- #post-0 -->
 
-      <?php endif; // end if there are no posts 
-      while ( have_posts() ) : the_post();
-        ?>
-      <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-        <h2 class="entry-title">
-           <a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
-             <?php the_title(); ?>
-           </a>
-         </h2>
+<?php endif; // end if there are no posts ?>
+<?php // if there are posts, Start the Loop. ?>
 
-        <section class="entry-content">
+<?php while ( have_posts() ) : the_post(); ?>
+
+    <article id="post-<?php the_ID(); ?>" class="fullwidthpost">
+      <h2 class="entry-title">
+        <a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
+          <?php the_title(); ?>
+        </a>
+      </h2>
+     <?php if ( has_post_thumbnail() ) { ?>
+
+      <figure class="sideImagePosts">
+        <?php the_post_thumbnail('large');?>
+      </figure>
+      <section class="excerptPosts">
+    <?php }else {; ?>
+    <section class="excerptPosts fullwidthexcerpts">
+   <?php  };?>
+     <?php the_excerpt('Continue Reading'); ?>
+     <section class="ctaInternal">
+       <?php if( have_rows('cta_links' ) ): ?>
+           <?php while( have_rows('cta_links') ): the_row(); 
+
+               ?>
+               <?php $linkLable = get_sub_field('link_label_Programming'); ?>
+               <?php if( have_rows('link_package_programming') ): ?>
+                   <?php while( have_rows('link_package_programming') ): the_row();
+                  $externalLink = get_sub_field('external_link_programming');
+                   $internalLink = get_sub_field('internal_link_programming');
+                     ?>
+                    <a class="ctaLink" href="<?php the_sub_field('internal_link_programming') ?><?php the_sub_field('external_link_programming') ?>"><?php echo $linkLable ;?></a>
     
-          <img src="<?php the_post_thumbnail('large') ?>" alt="<?php the_title(); ?>">
-          <?php the_excerpt('Continue Reading'); ?>
-          <?php wp_link_pages( array(
-             'before' => '<div class="page-link"> Pages:',
-             'after' => '</div>'
-           )); ?>
-        </section><!-- .entry-content -->
 
-      </article>
+                  <?php endwhile; ?>
+              <?php endif; ?> 
+            <?php endwhile; ?>
+          <?php endif; ?>     
+     </section>
+    </section>
+
+    </article><!-- #post-## -->
 
 
+<?php endwhile; // End the loop. Whew. ?>
 
-  <?php endwhile; // end the loop?>
+<?php // Display navigation to next/previous pages when applicable ?>
+<?php if (  $wp_query->max_num_pages > 1 ) : ?>
+  <p class="alignleft"><?php next_posts_link('&laquo; Older Entries'); ?></p>
+  <p class="alignright"><?php previous_posts_link('Newer Entries &raquo;'); ?></p>
+<?php endif; ?>
    <?php wp_reset_query();?> 
 </main>
 

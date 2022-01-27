@@ -31,7 +31,11 @@
                     setup_postdata($post);
                  ?>
                   <section class="fullwidthpost">
-                    <h3><?php the_title();?></h3>
+                    <h2 class="entry-title">
+                      <a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
+                        <?php the_title(); ?>
+                      </a>
+                    </h2>
                     <figure class="sideImagePosts">
                       <?php the_post_thumbnail('large');?>
                     </figure>
@@ -70,7 +74,11 @@
                               setup_postdata($post);
                            ?>
                             <section class="smallWidthContent">
-                              <h3><?php the_title();?></h3>
+                              <h2 class="entry-title">
+                                <a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
+                                  <?php the_title(); ?>
+                                </a>
+                              </h2>
                               <figure class="sideImagePostsSM">
                                 <?php the_post_thumbnail('large');?>
                               </figure>
@@ -123,7 +131,7 @@
             <?php if( have_rows('custom_content_info') ): ?>
                 <?php while( have_rows('custom_content_info') ): the_row(); ?>
                   <section class="smallWidthContent">
-                  <h3><?php the_sub_field('custom_content_header'); ?></h3>
+                  <h2><?php the_sub_field('custom_content_header'); ?></h2>
                   <figure class="sideImagePostsSM">
                     <?php 
                     $image = get_sub_field('custom_content_image');
