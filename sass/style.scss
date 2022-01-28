@@ -85,7 +85,7 @@ a {
 		border-bottom: 2px solid #eb5858;
 	}
 }
-.menu-item a, .logoLink, h2 a, #archiveEach li a, .navigation p a {
+.menu-item a, .logoLink, h2 a, #archiveEach li a, .navigation p a, .registerLink a, .alignleft a , .alignright a{
 	border-bottom: 0;
 	&:hover {
 		border-bottom: 0;
@@ -151,8 +151,8 @@ img {
 		background: white;
 		text-transform: uppercase;
 		padding: 5px;
-		width:150px;
-		width: 16vw;
+		width:16.67%;
+		// width: 16vw;
 		text-align: center;
 		border-left:none;
 		&:hover {
@@ -171,10 +171,12 @@ ul.sub-menu {
 	list-style: none;
 	margin: 0 -6px 0;
 	padding: 6px 0 0;
+	width: 95.5%;
 	position: absolute;
 	li {
 		border-top: none !important;
 		border-left: 1px solid black !important;
+		padding: 0;
 	}
 	// left: -0.5vw;
 }
@@ -520,6 +522,13 @@ ul.sub-menu {
 	border-top:0;
 	@extend .textBoxStyling;
 }
+.navigation {
+	display: flex;
+	justify-content: space-between;
+	.nav-next {
+		text-align: right;
+	}
+}
 //staff and board
 
 .sbEach {
@@ -556,7 +565,7 @@ ul.sub-menu {
 	 .DescWSHome {
 	 	width: 40%;
 	 	@extend .textBoxStyling;
-	 	padding: 10px;
+	 	padding: 5px;
 	 }
 	 .instructorWSHome {
 	 }
@@ -564,7 +573,7 @@ ul.sub-menu {
 	 		@extend .textBoxStyling;
 	 		border: 1px solid black;
 	 		border-top:0;
-	 		padding: 10px;
+	 		padding: 5px;
 	 		text-align: center;
 	 		height: fit-content;
 	 		width: 18%;
@@ -574,7 +583,7 @@ ul.sub-menu {
 	 	background: #75fb4c;
 	 	width: 6%;
 	 	text-align: center;
-	 	padding: 10px;
+	 	padding: 5px;
 	 	height: fit-content;
 	 	border: 1px solid black;
 	 	border-top:0;
@@ -584,11 +593,47 @@ ul.sub-menu {
 	 	background: #eb5858;
 	 	width: 6%;
 	 	text-align: center;
-	 	padding: 10px;
+	 	padding: 5px;
 	 	height: fit-content;
 	 	border: 1px solid black;
 	 	border-top:0;
 	 }
+}
+//workshop Single 
+
+.workshopDetails {
+	margin-top: 20px;
+	background: white;
+	width: 100%;
+	border: 1px solid black;
+	.titleWSSingle, .InsturctorName, .dateWSSingle, .timeWSSingle, .locationWSSingle {
+		@extend .flex; 
+		section {
+			padding: 10px;
+			border-bottom: 1px solid black;
+			width: 85%;
+
+		}
+		.wsSingleTitle {
+			width: 15%;
+			text-transform: uppercase;
+			border-right: 1px solid black;
+		}
+	}
+	.registerLink {
+		text-align: center;
+		text-transform: uppercase;
+		background: #75fb4c;
+		padding: 5px 0;
+
+	}
+}
+.wsSingleFull {
+	background: #eb5858;
+	margin: 0;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 5px 0;
 }
 //single 
 .postMainContent {

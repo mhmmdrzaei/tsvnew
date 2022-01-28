@@ -23,8 +23,8 @@
 
   </section>
   <section class="workshopDetails">
-    <section class="title">
-      <section class="wsSingleTitle">Title</section>
+    <section class="titleWSSingle">
+      <section class="wsSingleTitle">Workshop</section>
       <section class="titleWorkshop"><?php the_title(); ?></section>
     </section>
     <section class="InsturctorName">
@@ -66,21 +66,22 @@
         <?php endif; ?>
       </section>
     </section>
-      <section class="register">
-          <?php
-          $field = get_field_object('registration_open_or_closed');
-          $value = $field['value'];
-          if( $value === 'Open' ): ?>
-            <?php if( have_rows('registeration_workshops' ) ): ?>
-                <?php while( have_rows('registeration_workshops') ): the_row();?>
-                <a href="<?php the_sub_field('registration_link'); ?>" target="_blank"><?php the_sub_field('registration_button_label'); ?></a>
-              <?php endwhile; ?>
-            <?php endif; ?>
-         <?php else: ; ?>
-          <p class="wsSingleFull">Sorry, You can no longer register.</p>
-        <?php endif; ?>
-      </section>
-
+      
+    <?php
+    $field = get_field_object('registration_open_or_closed');
+    $value = $field['value'];
+    if( $value === 'Open' ): ?>
+      <?php if( have_rows('registeration_workshops' ) ): ?>
+          <?php while( have_rows('registeration_workshops') ): the_row();?>
+          <section class="registerLink">
+          <a href="<?php the_sub_field('registration_link'); ?>" target="_blank"><?php the_sub_field('registration_button_label'); ?></a>
+          </section>
+        <?php endwhile; ?>
+      <?php endif; ?>
+   <?php else: ; ?>
+    <p class="wsSingleFull">Sorry! You can no longer register.</p>
+  <?php endif; ?>
+      
   </section>
       
   </section>

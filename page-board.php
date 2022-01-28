@@ -32,9 +32,11 @@
         <?php endwhile; ?>
       
     <?php endif; ?>
-  <section class="bodyText">
-     <?php the_content(); ?>
-  </section>
+    <?php if ( !empty( get_the_content() ) ){ ;?>
+      <section class="bodyText">
+         <?php the_content(); ?>
+      </section>
+    <?php };  ?>
  
 
   <?php endwhile; // end the loop?>

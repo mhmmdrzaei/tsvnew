@@ -10,7 +10,7 @@
             'relation' => 'AND',
           'start_clause' => array(
                 'key'   => 'date_start_workshop',
-                'compare' => '>=',
+                'compare' => '<=',
                 'value'   => $today
             ),
             'end_clause' => array(

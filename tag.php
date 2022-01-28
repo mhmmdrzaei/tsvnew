@@ -1,16 +1,25 @@
 <?php get_header(); ?>
 
-<div class="main">
-  <div class="container">
+<main>
+  <h1 class="pageTitle">Tag Archives: <?php single_tag_title(); ?></h1>
+  <?php  $tag = get_query_var('tag');?>
+   <?php $args = array( 'post_type' => array('post','programming','workshops', 'publications','production'),
+          'tag' => $tag,
+          // 'meta_key'      => 'start_date',
+          // 'orderby'      => 'meta_value',
+           'order'       => 'DESC',
+          // 'orderby' => array(
+          //    'meta_value_num' => 'desc',
+          //    'post_date' => 'desc'
+          'orderby'    => array(
+                'start_date' => 'DSC',
+                'post_date' => 'desc'
+              ),
+          'posts_per_page' => -1 );
+      query_posts( $args ); // hijack the main loop ;?>
+  <?php get_template_part( 'loop', 'tag' ); ?>
 
-    <div class="content">
-      <h1>Tag Archives: <?php single_tag_title(); ?></h1>
-      <?php get_template_part( 'loop', 'tag' ); ?>
-    </div> <!-- /.content -->
+</main>
 
-    <?php get_sidebar(); ?>
-
-  </div><!-- /.container -->
-</div><!-- /.main -->
 
 <?php get_footer(); ?>
