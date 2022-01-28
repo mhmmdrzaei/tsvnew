@@ -220,9 +220,9 @@ if ( ! function_exists( 'project_posted_in' ) ) :
  */
 function project_posted_in() {
 	// Retrieves tag list of current post, separated by commas.
-	$tag_list = get_the_tag_list( '', ', ' );
+	$tag_list = get_the_tag_list( '', ' ' );
 	if ( $tag_list ) {
-		$posted_in = '<span class="tagEach">%2$s</span>';
+		$posted_in = '<section class="tagList">%2$s</section>';
 	} 
 	// Prints the string, replacing the placeholders.
 	printf(

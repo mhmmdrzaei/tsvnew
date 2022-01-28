@@ -85,7 +85,7 @@ a {
 		border-bottom: 2px solid #eb5858;
 	}
 }
-.menu-item a, .logoLink, h2 a, #archiveEach li a {
+.menu-item a, .logoLink, h2 a, #archiveEach li a, .navigation p a {
 	border-bottom: 0;
 	&:hover {
 		border-bottom: 0;
@@ -589,4 +589,71 @@ ul.sub-menu {
 	 	border: 1px solid black;
 	 	border-top:0;
 	 }
+}
+//single 
+.postMainContent {
+	@extend .flex;
+	.sideImagePostsSingle {
+		width: 50%;
+		img {
+			border: 1px solid black;
+			border-top:0;
+		}
+	}
+	.postMainInnerContent {
+		width: 50%;
+		@extend .textBoxStyling;
+		figure {
+			max-width: 95% !important;
+			margin: 0 auto;
+		}
+		.tagList {
+			@extend .flex;
+			padding: 0 20px;
+			a {
+				@extend .ctaLink;
+			}
+			
+		}
+	}
+	.postMainInnerContentFull {
+		@extend .textBoxStyling;
+		.tagList {
+			@extend .flex;
+			padding: 0 20px;
+			a {
+				@extend .ctaLink;
+			}
+			
+		}
+
+	}
+}
+//Biography
+.bios {
+	@extend .flex;
+	justify-content:space-between;
+	margin-top: 20px;
+	h3 {
+		background: #d0fafb;
+	}
+	.bioEach {
+		width: 48%;
+		margin: 20px 0;
+		h4 {
+			text-align: center;
+			background: #75fb4c;
+			padding: 5px;
+			border: 1px solid black;
+			margin:0;
+		}
+		.participantBio {
+			@extend .textBoxStyling;
+			padding: 20px 0;
+			p {
+				margin: 0;
+			}
+		}
+
+	}
 }
