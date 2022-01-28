@@ -499,6 +499,10 @@ ul.sub-menu {
 		border-left: 0;
 		border-right:0;
 	}
+	figure {
+		width: 95%;
+		margin: 0 auto;
+	}
 }
 .pageSingleContentBox {
 	@extend .flex;
