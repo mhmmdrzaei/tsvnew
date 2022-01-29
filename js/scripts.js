@@ -1,8 +1,18 @@
-const gearApp= {
+// const gearApp= {
 
-}
+// }
 
 // gearApp.getPieces =function(query) {
+
+
+
+
+
+
+
+$(function(){
+var data ='';
+console.log(data);
 
 	$.ajax({
 	url: 'https://tsv.amsnetwork.ca/api/v3/assets?type=Equipment&per_page=600',
@@ -14,89 +24,54 @@ const gearApp= {
 	},
 	success: function (res) { 
 		console.log(res.assets);
-		$.each(res, function(index, value) {  
-			for(var i=0; i<1000; i++){
-				var available =value[i].status_text;
-				var name = value[i].name;
-				var catagory = value[i].category_name;
-				if (catagory === "Lights") {
-					console.log (name);
-					 $('.output').append('<div>'+name+'</div>');
-				}
-				// 
-				// console.log (name);
-				// $('.output').append(name);
+		window.myvar = res.assets;
+		$("#gearOptions").on("change", function(){
+			$('.output').empty();
+			const choice = $('select option:selected').text();
+			$('#page-title').text(choice);
+		  var gear = $(this).val();
+		  $.each(res, function(index, value) {  
+		  	for(var i=0; i<1000; i++){
+		  		var available =value[i].status_text;
+		  		var name = value[i].name;
+		  		var catagory = value[i].category_name;
+		  		var image = value[i].photo_medium;
+		  		var description = value[i].description;
+		  		var external_url_resources = value[i].external_url_resources;
+		  		var included_accessories = value[i].included_accessories;
+		  		var price = value[i].price_types[0];
 
-			}
-			
+		  		if ((catagory === gear) && (available === 'Active') ) {
+		  			console.log (name);
+		  			 $('.output').append('<article class="gearEach"><h2>'+ name +'</h2><img src="'+image+'"><section className="pricesection">'+price+'</section></article>' );
+		  		}
+		  		// 
+		  		// console.log (name);
+		  		// $('.output').append(name);
+
+		  	}
+		  	
+		  });
+		  
+		  // gearApp.getPieces(gear);
+		  // gearApp.updateTitle();
 		});
+
 
 	},
 	error: function () { },
-	}).then(function(res) {
+	}).then(function() {
 
-
-
-  // console.log(res.assets);
-  // $('gearList').empty();
-  // gearApp.displayPieces(res.assets);
-
-  	// console.log(i);
-
-  	
-    
-     
-   
-    
-    
-    // var bio = value.user.bio;
-    // var imageURL = value.urls.regular;
-    
-    // $('.name').text(name);
-    // $('.bio').text(bio);
-    // $('.image img').attr('src', imageURL);
     
  
 });
 
 
-
-// };
-
-// gearApp.displayPieces = function(data){
-// 	const gearHTML = data.filter((gearObj) => gearObj.photo).map((gearObj) => {
-// 		let gearPieces = `${gearObj.title}`;
-// 		return gearPieces;
-// 	}).join('');
-// 	$('#gearList').append(gearPieces);
-// 	console.log(gearPieces)
-// }
-
-
-
-$(function(){
-
-	// console.log("It's working");
-
-//   if($('ul#archiveEach').children.length === 1) { 
-//     $("ul#archiveEach li").css("background", "#F00");
-//   }
-
-
 $('ul#archiveEach').each(function() {
   var $this = $(this);
-  if ($this.find('li').length < 2) { //if looking for direct descendants then do .children('div').length
+  if ($this.find('li').length < 2) { 
       $this.addClass('moreThanOne');
   }
 });
 });
 
-
-
-
-// var each = document.getElementById('archiveEach').getElementsByTagName('li');
-
-
-// $(each).length >= 1 {
-// 	$('.archiveMain').find('ul').addClass('more');
-// };

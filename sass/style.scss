@@ -66,6 +66,9 @@ h1 {
 	border-right: 1px solid black;
 
 }
+.RentalPageTitle {
+	margin-bottom: 0;
+}
 h2, h3 {
 	@include fontSize(9);
 	font-weight: 300;

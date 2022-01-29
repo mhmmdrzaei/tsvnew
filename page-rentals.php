@@ -3,7 +3,8 @@
   
   <?php // Start the loop ?>
   <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-  <h1 class="pageTitle"><?php the_title(); ?></h1>
+  <h1 class="pageTitle RentalPageTitle"><?php the_title(); ?></h1>
+  <h1 class="pageTitle RentalPageTitle" id="page-title">Cameras</h1>
   <section class="pageSingleContentBox">
   <?php if ( has_post_thumbnail() ) { ?>
    <figure class="pageSignleImage">
@@ -16,13 +17,20 @@
     <?php the_content(); ?>
     </section>
   <form action="">
-    <label for="animal">Choose your animal:</label>
-    <select name="animal" id="animal">
-      <option value="monkey">Monkeys</option>
-      <option value="eagle">Eagles</option>
-      <option value="dragon">Dragons</option>
-      <option value="elephant">Elephants</option>
-      <option value="centaur">Centaur</option>
+    <label for="gearOptions">Choose your Rental Option:</label>
+    <select name="gearOptions" id="gearOptions">
+      <option value="Cameras">Cameras</option>
+      <option value="Lights">Lights</option>
+      <option value="Lens">Lens</option>
+      <option value="Audio">Audio</option>
+      <option value="Tripods">Tripods</option>
+      <option value="Monitors">Monitors</option>
+      <option value="Grip">Grip</option>
+      <option value="Presentation">Presentation</option>
+      <option value="Mobile Computers">Mobile Computers</option>
+      <option value="Virtual Reality">Virtual Reality</option>
+      <option value="Shared Facilities">Shared Facilities</option>
+
     </select>
   </form>
   <main>
