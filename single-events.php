@@ -2,7 +2,7 @@
 <main>
   <section class="postmain">
     <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-    <h1 class="pageTitle">News</h1>
+    <h1 class="pageTitle">Events</h1>
     
     <section class="postMainContent">
       <h2 class="entry-title"><?php the_title(); ?></h2>
@@ -22,10 +22,6 @@
     </section>
 
   </section>
-  <div id="nav-below" class="navigation">
-    <p class="nav-previous"><?php previous_post_link('%link', '&larr; %title'); ?></p>
-    <p class="nav-next"><?php next_post_link('%link', '%title &rarr;'); ?></p>
-  </div><!-- #nav-below -->
 
   <?php endwhile; // end of the loop. ?>
 </main>

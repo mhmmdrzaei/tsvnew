@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <main>
-  <h1 class="pageTitle">Tag Archives: <?php single_tag_title(); ?></h1>
+  <h1 class="pageTitle">Archives: <?php single_tag_title(); ?></h1>
   <?php  $tag = get_query_var('tag');?>
    <?php $args = array( 'post_type' => array('post','programming','workshops', 'publications','production'),
           'tag' => $tag,

@@ -41,7 +41,7 @@ main {
 	margin: 0 auto;
 }
 .headerMain, .footerContainer {
-	padding-top: 2.5%;
+	padding-top: 20px;
 }
 .footerContainer {
 	padding-bottom: 2.5%;
@@ -88,7 +88,7 @@ a {
 		border-bottom: 2px solid #eb5858;
 	}
 }
-.menu-item a, .logoLink, h2 a, #archiveEach li a, .navigation p a, .registerLink a, .alignleft a , .alignright a{
+.menu-item a, .logoLink, h2 a, #archiveEach li a, .navigation p a, .registerLink a, .alignleft a , .alignright a, .linksEach li a{
 	border-bottom: 0;
 	&:hover {
 		border-bottom: 0;
@@ -170,6 +170,13 @@ img {
 	}
 }
 
+body.whiteAll {
+	#menu-header-menu li:hover, #menu-footer-menu li:hover {
+		background: white;
+	}
+}
+
+
 ul.sub-menu {
 	list-style: none;
 	margin: 0 -6px 0;
@@ -199,7 +206,7 @@ ul.sub-menu {
 	justify-content:space-between;
 	h2 {
 		text-align: center;
-		background: #a3a1e9;
+		// background: #a3a1e9;
 		padding: 5px 0;
 		border: 0;
 		border-bottom: 1px solid black;
@@ -364,7 +371,7 @@ ul.sub-menu {
 	justify-content:space-between;
 	h2 {
 		text-align: center;
-		background: #a3a1e9;
+		// background: #a3a1e9;
 		padding: 5px 0;
 		border-top: 1px solid #000;
 		border-left: 1px solid #000;
@@ -377,7 +384,7 @@ ul.sub-menu {
 .fullwidthpost {
 	h2 {
 		text-align: center;
-		background: #a3a1e9;
+		// background: #a3a1e9;
 		padding: 5px 0;
 		border-top: 1px solid #000;
 		border-left: 1px solid #000;
@@ -684,7 +691,7 @@ ul.sub-menu {
 //Biography
 .bios {
 	@extend .flex;
-	justify-content:space-between;
+	justify-content: flex-start;
 	margin-top: 20px;
 	h3 {
 		background: #d0fafb;
@@ -709,3 +716,247 @@ ul.sub-menu {
 
 	}
 }
+
+//rentals page 
+.output {
+	@extend .flex;
+	align-content: flex-start; 
+	.gearEach {
+		width: 32%;
+		margin-right: 2%;
+		margin-bottom: 20px;
+		.gearEachInner {
+			background: white;
+			border: 1px solid black;
+			h2 {
+				border:0;
+				border-bottom:1px solid black;
+			}
+			img {
+				border-bottom:1px solid black;
+			}
+			.pricesection {
+				@extend .flex;
+				justify-content: space-around;
+
+				section {
+					// padding: 10px 0;
+					border-left: 1px solid black;
+					text-align: center;
+					position: relative;
+					top: -4px;
+
+
+					padding: 10px 5px;
+					// margin: 0 auto;
+					// width:33%;
+					
+				}
+				section:nth-child(1) {
+					border-left: 0;
+				}
+				
+			}
+			.specsAvail {
+				width: 100%;
+				text-align: center;
+				text-transform: uppercase;
+				background: #75fb4c;
+				border: 0;
+				padding: 5px;
+				border-top: 1px solid black;
+			}
+		}
+
+	}
+	.gearEach:nth-child(3n) {
+		margin-right: 0;
+	}
+}
+.gearSelection {
+	margin: 20px 0;
+	h3 {
+		margin: 0;
+
+	}
+	select {
+
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    text-transform: uppercase;
+    outline: 0;
+    border-top:0;
+    background: #75fb4c;
+    cursor: pointer;
+	}
+}
+.gearEachMore {
+	display: none;
+}
+
+//loader 
+
+.lds-roller {
+  // display: inline-block;
+  // position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #eb5858;
+  margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.whiteAll {
+	background: white !important;
+}
+.blackAll {
+	background: black !important;
+	border-color: white;
+}
+.whiteText {
+	color: white;
+}
+
+// access menu
+.accessMenu {
+	position: absolute;
+	display: none;
+	    background: white;
+	    right: 2.5%;
+	    top: 50px;
+	    width: 16.9%;
+	    padding: 10px;
+	    border: 1px solid black;
+	    border-top: 0;
+
+	 .desaturateMenu,  {
+	 	margin-bottom: 20px;
+	 	button {
+	 		width: 100%;
+	 		border-left: 1px solid black;
+	 		padding: 10px 5px;
+	 		height: auto;
+	 	}
+	 }
+	 .clearselections {
+	 	button {
+	 		width: 100%;
+	 		border-left: 1px solid black;
+	 		padding: 10px 5px;
+	 		height: auto;
+	 	}
+	 }
+	 #fontSizeRange {
+	 	width: 100%;
+	 }
+
+	}
+
+	.fontSizeRange {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+			margin: 0;
+			.largA {
+				@include fontSize(18);
+				// position: relative;
+				// top: -12px;
+				margin: 0;
+			}
+			.smallA {
+				margin: 0;
+			}
+
+	}
+
+	//404 page 
+	.page404 {
+		h2 {
+			margin-top: 20px
+
+		}
+		p {
+			background: white;
+			margin: 0;
+			border: 1px solid black;
+			border-top: 0;
+			padding: 10px;
+		}
+	}

@@ -24,7 +24,25 @@
       <h1> A SPACE<br>TO RE-IMAGINE<br>MEDIA ARTS</h1>
     </section>
     <button class="access">Accessibility</button>
-    <section class="accessMenu"></section>
+    <section class="accessMenu">
+      <section class="fontSizeIncrease">
+        <section class="fontSizeRange">
+        <p class="smallA">- A</p>
+        <p class="largA">A +</p>
+        </section>
+        <input id="fontSizeRange" type="range" min="15" max="25" value="0">
+      </section>
+      <section class="desaturateMenu">
+        <button class="desaturate">Desaturate Page</button>
+      </section>
+<!--       <section class="darkMode">
+        <button class="darkModeButton">Dark Mode</button>
+      </section> -->
+      <section class="clearselections">
+        <button class="clearInputs">Clear Inputs</button>
+      </section>
+
+    </section>
     </section>
     <?php wp_nav_menu( array(
         'container' => false,
