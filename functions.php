@@ -267,6 +267,8 @@ if( function_exists('acf_add_options_page') ) {
 		'menu_title'	=> 'Gallery Information',
 		'menu_slug' 	=> 'theme-general-settings',
 		'capability'	=> 'edit_posts',
+		'icon_url' => 'dashicons-email-alt2',
+		'position' => 14,
 		'redirect'		=> false
 	));
 	

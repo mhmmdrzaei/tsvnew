@@ -76,7 +76,7 @@
 <?php endwhile; // End the loop. Whew. ?>
 
 <?php // Display navigation to next/previous pages when applicable ?>
-<?php if (  $wp_query->max_num_pages > 1 ) : ?>
+<?php if (  $args->max_num_pages > 1 ) : ?>
   <p class="alignleft"><?php next_posts_link('&laquo; Older Entries'); ?></p>
   <p class="alignright"><?php previous_posts_link('Newer Entries &raquo;'); ?></p>
 <?php endif; ?>

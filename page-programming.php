@@ -16,7 +16,7 @@
                 'start_date' => 'DSC',
                 'post_date' => 'desc'
               ),
-          'posts_per_page' => -1 );
+          'posts_per_page' => 10 );
       query_posts( $args ); // hijack the main loop
 
       if ( ! have_posts() ) : ?>

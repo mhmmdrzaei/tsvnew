@@ -112,16 +112,22 @@ img {
 
 	.headerInner {
 	display: flex;
-	button {
-		@include fontSize(9);
-		text-transform: uppercase;
-		height: 30px;
-		background: white;
-		border: 1px solid black;
-		border-left: 0;
-		outline: none;
+	// align-items: flex-end;
+	.accessMenuCover {
 		width: 18%;
+		.access {
+			@include fontSize(9);
+			text-transform: uppercase;
+			height: 30px;
+			background: white;
+			border: 1px solid black;
+			border-left: 0;
+			outline: none;
+			width: 100%;
+		}
 	}
+
+
 	}
 }
 .inspire {
@@ -144,17 +150,18 @@ img {
 #menu-header-menu {
 	@include fontSize(9);
 	list-style: none;
-	display: flex;
+	@extend .flex;
 	margin: 2.5% 0 0;
 	padding: 0;
-	justify-content: space-between;
+	// justify-content: space-between;
 	width: 100%;
 	li {
 		border: 1px solid black;
 		background: white;
 		text-transform: uppercase;
 		padding: 5px;
-		width:16.67%;
+		width:16.65%;
+		max-width: 230px;
 		// width: 16vw;
 		text-align: center;
 		border-left:none;
@@ -181,9 +188,11 @@ ul.sub-menu {
 	list-style: none;
 	margin: 0 -6px 0;
 	padding: 6px 0 0;
-	width: 95.5%;
+	width: 16.6%;
 	position: absolute;
 	li {
+		width: 100% !important;
+		max-width: 203px !important;
 		border-top: none !important;
 		border-left: 1px solid black !important;
 		padding: 0;
@@ -581,8 +590,7 @@ ul.sub-menu {
 	 	@extend .textBoxStyling;
 	 	padding: 5px;
 	 }
-	 .instructorWSHome {
-	 }
+
 	 .instructorWSHome, .locationWSHome, .dateTimeWSHome{
 	 		@extend .textBoxStyling;
 	 		border: 1px solid black;
@@ -592,6 +600,10 @@ ul.sub-menu {
 	 		height: fit-content;
 	 		width: 18%;
 	 }
+	 .instructorWSHome {
+	 	border-left: 0;
+	 }
+
 	 .openWSHome {
 	 	text-transform: uppercase;
 	 	background: #75fb4c;
@@ -601,6 +613,7 @@ ul.sub-menu {
 	 	height: fit-content;
 	 	border: 1px solid black;
 	 	border-top:0;
+	 	border-left: 0;
 	 }
 	 	 .fullWSHome {
 	 	text-transform: uppercase;
@@ -641,6 +654,7 @@ ul.sub-menu {
 		padding: 5px 0;
 
 	}
+
 }
 .wsSingleFull {
 	background: #eb5858;
@@ -691,7 +705,7 @@ ul.sub-menu {
 //Biography
 .bios {
 	@extend .flex;
-	justify-content: flex-start;
+	justify-content: space-between;
 	margin-top: 20px;
 	h3 {
 		background: #d0fafb;
@@ -885,9 +899,10 @@ ul.sub-menu {
 .whiteAll {
 	background: white !important;
 }
-.blackAll {
+.blackBack {
 	background: black !important;
 	border-color: white;
+	color:white;
 }
 .whiteText {
 	color: white;
@@ -895,33 +910,25 @@ ul.sub-menu {
 
 // access menu
 .accessMenu {
-	position: absolute;
+	// position: relative;
 	display: none;
 	    background: white;
-	    right: 2.5%;
-	    top: 50px;
-	    width: 16.9%;
 	    padding: 10px;
 	    border: 1px solid black;
 	    border-top: 0;
+	    border-left: 0;
 
-	 .desaturateMenu,  {
-	 	margin-bottom: 20px;
-	 	button {
+	 .desaturateMenu button, .clearselections button {
 	 		width: 100%;
-	 		border-left: 1px solid black;
-	 		padding: 10px 5px;
+	 		border: 1px solid black;
+	 		padding: 5px;
 	 		height: auto;
+	 		text-transform: uppercase;
+	 		background: white;
 	 	}
-	 }
-	 .clearselections {
-	 	button {
-	 		width: 100%;
-	 		border-left: 1px solid black;
-	 		padding: 10px 5px;
-	 		height: auto;
-	 	}
-	 }
+	.desaturateMenu  {
+		margin-bottom: 20px;
+	}
 	 #fontSizeRange {
 	 	width: 100%;
 	 }
@@ -959,4 +966,73 @@ ul.sub-menu {
 			border-top: 0;
 			padding: 10px;
 		}
+	}
+
+	//media quaries
+	@media(min-width: 1420px){ 
+
+		.logo {
+			.shapes {
+				display: flex;
+				.triangleUp{
+					width: 171px;
+					    border-left: 85px solid transparent;
+					    border-right: 85px solid transparent;
+					    border-bottom: 171px solid #000;
+				}
+				.square {
+					width: 171.812px;
+					height: 171px;
+					background: black;
+
+				}
+				.triangleDown{
+					width: 171px;
+			     	border-left: 85px solid transparent;
+			     	border-right: 85px solid transparent;
+			      	border-top: 171px solid #000;
+				}
+			}
+			.words {
+				display: flex;
+				div {
+					font-size: 1.5rem;
+					padding: 10px 14px;
+					width: 171px;
+					h1 {
+						margin: 0;
+						font-size: 1.5rem;
+					}
+				}
+
+				.video {
+					width:  171.812px;
+					border-right: none;
+				}
+			}
+		}
+		.inspire {
+
+			width: 584px;
+			h1 {
+				font-size: 1.5rem;
+			}
+		}
+
+		ul.sub-menu {
+			list-style: none;
+			margin: 0 -6px 0;
+			padding: 6px 0 0;
+			width: 15.5%;
+			li {
+				width: 100% !important;
+				max-width: 226px !important;
+				border-top: none !important;
+				border-left: 1px solid black !important;
+				padding: 0;
+			}
+			// left: -0.5vw;
+		}
+
+
 	}

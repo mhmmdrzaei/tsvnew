@@ -21,26 +21,34 @@
       <?php require 'template-parts/logo.php'; ?>
     </a>
     <section class="inspire">
-      <h1> A SPACE<br>TO RE-IMAGINE<br>MEDIA ARTS</h1>
+      <?php $cars = get_field( 'rotating_page_tag','options' );  ?>
+      <?php if( is_array( $cars ) ) { ?>
+        <?php $car = array_rand( $cars ); ?>
+       <h1><?php echo $cars[$car]['tag_line'];?></h1> 
+      <?php } ?>
+      
     </section>
-    <button class="access">Accessibility</button>
-    <section class="accessMenu">
-      <section class="fontSizeIncrease">
-        <section class="fontSizeRange">
-        <p class="smallA">- A</p>
-        <p class="largA">A +</p>
-        </section>
-        <input id="fontSizeRange" type="range" min="15" max="25" value="0">
-      </section>
-      <section class="desaturateMenu">
-        <button class="desaturate">Desaturate Page</button>
-      </section>
-<!--       <section class="darkMode">
-        <button class="darkModeButton">Dark Mode</button>
-      </section> -->
-      <section class="clearselections">
-        <button class="clearInputs">Clear Inputs</button>
-      </section>
+    <section class="accessMenuCover">
+          <button class="access">Accessibility</button>
+          <section class="accessMenu">
+            <section class="fontSizeIncrease">
+              <section class="fontSizeRange">
+              <p class="smallA">- A</p>
+              <p class="largA">A +</p>
+              </section>
+              <input id="fontSizeRange" type="range" min="15" max="25" value="">
+            </section>
+            <section class="desaturateMenu">
+              <button class="desaturate">Desaturate Page</button>
+            </section>
+      <!--       <section class="darkMode">
+              <button class="darkModeButton">Dark Mode</button>
+            </section> -->
+            <section class="clearselections">
+              <button class="clearInputs">Clear Inputs</button>
+            </section>
+    </section>
+    
 
     </section>
     </section>
