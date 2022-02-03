@@ -32,11 +32,14 @@
           <button class="access">Accessibility</button>
           <section class="accessMenu">
             <section class="fontSizeIncrease">
-              <section class="fontSizeRange">
+<!--               <section class="fontSizeRange">
               <p class="smallA">- A</p>
               <p class="largA">A +</p>
               </section>
-              <input id="fontSizeRange" type="range" min="15" max="25" value="">
+              <input id="fontSizeRange" type="range" min="15" max="25" value=""> -->
+              <button class="decreaseFont" value="decrease"> A- </button>
+              <button class="increaseFont" value="increase"> A+ </button>
+              
             </section>
             <section class="desaturateMenu">
               <button class="desaturate">Desaturate Page</button>
