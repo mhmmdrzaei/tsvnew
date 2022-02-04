@@ -4,7 +4,7 @@
   <?php // Start the loop ?>
   <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
   <h1 class="pageTitle RentalPageTitle"><?php the_title(); ?></h1>
-  <h1 class="pageTitle RentalPageTitle" id="page-title">Cameras</h1>
+  <!-- <h1 class="pageTitle RentalPageTitle" id="page-title">Cameras</h1> -->
 
   <form class="gearSelection" action="">
       <h3><label for="gearOptions">Gear Category:</label></h3>

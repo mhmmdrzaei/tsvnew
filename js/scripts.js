@@ -6,7 +6,7 @@ var gear;
 	url: 'https://tsv.amsnetwork.ca/api/v3/assets?type=Equipment&per_page=600',
 	type: 'GET',
 	beforeSend: function (xhr) {
-	    xhr.setRequestHeader('Authorization', 'Bearer e250cc61ae026bc9ad3c4c616c06b4cf99018fee7a6da149fc3528e591bf77d4');
+	    xhr.setRequestHeader('Authorization', 'Bearer ');
 	},
 	data: {
 	},
@@ -22,7 +22,7 @@ var gear;
 				console.log('test');
 				$('.output').empty();
 				const choice = $('select option:selected').text();
-				$('#page-title').text(choice);
+				// $('#page-title').text(choice);
 			  var gearUpdate = $(this).val();
 			  var gear = gearUpdate;
 			  console.log(gear);			
@@ -188,11 +188,6 @@ if (localStorage.getItem('screenModeSaturateTokenState') == 'desaturate') {
    $('.tagList a, .postMainContent .postMainInnerContent .tagList a, .ctaLink, .membershipOptionsTable table thead tr th:nth-child(n+2), button, .button, .openWSHome').addClass('blackBack');
 
   }
-// if (localStorage.getItem('fontSizeRange') == 'userinput') {
-//    JSON.stringify($('#fontSizeRange').val());
-
-//   }
-
 
 
 $('.desaturateMenu').on('click',function(){
@@ -214,17 +209,29 @@ $('.clearInputs').on('click',function(){
 	localStorage.setItem('FontSize', 'normal');
 	$('body, h1.pageTitle, h2, h3, h4, h5, h6, a').css('font-size', '.9rem');
 
+});
+if ($(window).width() < 750) {
+	$('.contact h2').on('click',function(){
+		$('.galleryAddress, .officeHours, .galleryHours, .socialLinks').toggle();
+		$('.contact').toggleClass('borderBottom');
+	});
+	$('.footermenu h2').on('click',function(){
+		$('#menu-footer-menu').toggle();
+		$('.footermenu').toggleClass('borderBottom');
+	});
+	$('#mc_embed_signup_scroll h2').on('click',function(){
+		$('.mc-field-group, .clear').toggle();
+		$('.mainlingList').toggleClass('borderBottom');
+	});
+	$('.funders h2').on('click',function(){
+		$('.funderImages').toggle();
+		$('.funders').toggleClass('borderBottom');
+	});
 
 
 
-})
+}
 
-// $('.darkModeButton').on('click',function(){
-// 	$('body, h1, h2, h3, button, .button, .membershipOptionBox .membershipBoxPrice, #menu-header-menu .current-menu-item, #menu-header-menu .current-menu-parent, .membershipOptionsTable table thead tr th:nth-child(n+2),.ctaLink, .fullwidthpost h2, .ctaLink, .postMainContent .postMainInnerContent .tagList a, .postMainContent .postMainInnerContentFull .tagList a,#menu-header-menu li:hover, select').addClass('blackAll');
-// 	$('body').addClass('whiteText');
-
-
-// });
 
 
 

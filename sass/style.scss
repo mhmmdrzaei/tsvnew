@@ -61,9 +61,9 @@ h1 {
 	text-align: center;
 	width: 100%;
 	background: #eb5858;
-	border-bottom: 1px solid black;
-	border-left: 1px solid black;
-	border-right: 1px solid black;
+	border: 1px solid black;
+	position: relative;
+	top: -1px;
 
 }
 .RentalPageTitle {
@@ -75,7 +75,7 @@ h2, h3 {
 	text-transform:uppercase;
 	text-align: center;
 	background: #a3a1e9;
-	padding: 5px 0;
+	padding: 5px;
 	border: 1px solid black;
 	width: 100%;
 	margin: 0;
@@ -317,13 +317,19 @@ body.whiteAll {
 	}
 .funders {
 	margin-top: 2.5%;
-	@extend .flex;
+	width: 100%;
+	.funderImages {
+		@extend .flex;
+		justify-content:space-around;
+		align-items: center;
+	}
+	
 	background:white;
 	border: 1px solid black;
-	justify-content:space-around;
-	align-items: center;
+	
+	
 	img {
-		width: 25%;
+		width: 24%;
 		height: fit-content;
 	}
 }
@@ -491,6 +497,20 @@ body.whiteAll {
 	margin-top: 20px;
 	padding: 0 10px
 }
+
+//publication page 
+.pagePublications {
+	@extend .flex;
+	justify-content: space-between;
+}
+.PublicationPost {
+	width: 48%;
+	margin-bottom: 20px;
+	.PubImagePosts img {
+		border: 1px solid black;
+		border-top: 0;
+	}
+}
 //archives
 .archiveMain {
 
@@ -556,7 +576,10 @@ body.whiteAll {
 }
 .pageSingleContentBox {
 	@extend .flex;
+	border-top: 1px solid black;
 	.pageSignleImage {
+		position: relative;
+		top: -1px;
 		width: 50%;
 		img {
 			border:1px solid black;
@@ -564,6 +587,9 @@ body.whiteAll {
 	}
 	.pageSingleContentHalf {
 		width: 50%;
+		left: -1px;
+		position: relative;
+		top: -1px;
 		@extend .textBoxStyling;
 
 
@@ -572,9 +598,10 @@ body.whiteAll {
 }
 .pageSingleContent {
 	width: 100%;
-	
-	border-top:0;
+	position: relative;
+	top: -1px;
 	@extend .textBoxStyling;
+
 }
 .navigation {
 	display: flex;
@@ -1101,6 +1128,7 @@ body.whiteAll {
 
 	}
 
+
 	@media(max-width: 1278px){ 
 		#menu-header-menu li {
 					ul.sub-menu {
@@ -1117,13 +1145,14 @@ body.whiteAll {
 						// left: -0.5vw;
 					}
 		}
-		// #menu-header-menu li.menu-item-has-children:nth-last-child(1) {
-		// 	border-left: 1px solid black;
-		// 	border-top:0;
-		// }
+
 
 	}
 		@media(max-width: 1067px){ 
+					#menu-header-menu li.menu-item-has-children:nth-last-child(1) {
+			border-left: 1px solid black;
+			border-top:0;
+		}
 		// #menu-header-menu li.menu-item-has-children:nth-last-child(2) {
 		// 	border-left: 1px solid black;
 		// 	border-top:0;
@@ -1132,11 +1161,134 @@ body.whiteAll {
 
 	}
 
-		@media(max-width: 857px){ 
-		// #menu-header-menu li.menu-item-has-children:nth-last-child(3) {
-		// 	border-left: 1px solid black;
-		// 	border-top:0;
-		// 	border-right: 0;
-		// }
+
+		@media(max-width: 775px){ 
+			.fullwidthpost {
+				display: block;
+				h2, .sideImagePosts,.excerptPosts {
+					width: 100%;
+				}
+				.excerptPosts {
+					position: relative;
+					top:-7px;
+					left: 0;
+				}
+			}
+			.smallWidthContent {
+				width: 48%;
+			}
+			.footerContainer {
+				.contact, .landAcknowledgement, .footermenu, .mainlingList {
+					width: 48%;
+					margin-bottom: 20px;
+					border-bottom: 0;
+				}
+				.contact{
+					.galleryAddress,.officeHours,.galleryHours,.socialLinks {
+						display: none;
+					}
+
+				}
+
+				.acknowledgementInner {
+					display: none;
+				}
+				#menu-footer-menu {
+					display: none;
+				}
+				.mc-field-group, .clear {
+					display: none;
+				}
+				.borderBottom {
+				border-bottom: 1px solid black;
+			}
+			}
+
+			.funders {
+				border-bottom: 0;
+				.funderImages {
+								display: none;
+
+							}
+			} 
+
+
+			.postMainContent {
+				.sideImagePostsSingle, .postMainInnerContent {
+					width: 100%
+				}
+			}
+			.bios .bioEach {
+				width: 100%;
+			}
+			.output {
+				.gearEach {
+					width: 48%;
+					.gearEachInner {
+						.pricesection {
+							display: block;
+							section {
+							border-left:0;
+							border-bottom: 1px solid black;
+						}
+							section:nth-last-child(1) {
+							border-bottom: 0;
+						}
+						
+					}
+				}
+
+			}
+			.gearEach:nth-child(3n) {
+			    margin-right: 2%;
+			}
+					
+		}
+		.pageSingleContentBox {
+			.pageSignleImage, .pageSingleContentHalf {
+				width: 100%;
+			}
+			.pageSingleContentHalf {
+				position: relative;
+				top: -7px;
+			}
+		}
+	}
+	@media(max-width: 650px){ 
+		.sbEach {
+			.sbImage, .sbBio {
+				width: 100%;
+			}
+			.sbBio {
+				position: relative;
+				top: -6px;
+			}
+		}
+		.membershipOptionBox {
+			width: 100%;
+		}
+		.membershipOptionsTable {
+
+			overflow-x: auto;
+
+		}
+		.footerContainer {
+			.contact, .landAcknowledgement, .footermenu, .mainlingList {
+				width: 100%;
+				margin-bottom: 20px;
+				border-bottom: 0;
+			}
+				.borderBottom {
+				border-bottom: 1px solid black;
+			}
+
+		}
+		.PublicationPost {
+			width: 100%;
+		}
+		.archiveMain ul {
+			column-count:1;
+		}
+
 
 	}

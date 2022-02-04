@@ -1,6 +1,6 @@
 <?php get_header();  ?>
 
-<main>
+<main class="pagePublications">
   <h1 class="pageTitle"><?php the_title(); ?></h1>
   <?php // Start the loop ?>
 
@@ -32,42 +32,16 @@
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-    <article id="post-<?php the_ID(); ?>" class="fullwidthpost">
+    <article id="post-<?php the_ID(); ?>" class="PublicationPost">
       <h2 class="entry-title">
         <a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
           <?php the_title(); ?>
         </a>
       </h2>
-     <?php if ( has_post_thumbnail() ) { ?>
 
-      <figure class="sideImagePosts">
+      <figure class="PubImagePosts">
         <?php the_post_thumbnail('large');?>
       </figure>
-      <section class="excerptPosts">
-    <?php }else {; ?>
-    <section class="excerptPosts fullwidthexcerpts">
-   <?php  };?>
-     <?php the_excerpt('Continue Reading'); ?>
-     <section class="ctaInternal">
-       <?php if( have_rows('cta_links' ) ): ?>
-           <?php while( have_rows('cta_links') ): the_row(); 
-
-               ?>
-               <?php $linkLable = get_sub_field('link_label_Programming'); ?>
-               <?php if( have_rows('link_package_programming') ): ?>
-                   <?php while( have_rows('link_package_programming') ): the_row();
-                  $externalLink = get_sub_field('external_link_programming');
-                   $internalLink = get_sub_field('internal_link_programming');
-                     ?>
-                    <a class="ctaLink" href="<?php the_sub_field('internal_link_programming') ?><?php the_sub_field('external_link_programming') ?>"><?php echo $linkLable ;?></a>
-    
-
-                  <?php endwhile; ?>
-              <?php endif; ?> 
-            <?php endwhile; ?>
-          <?php endif; ?>     
-     </section>
-    </section>
 
     </article><!-- #post-## -->
 

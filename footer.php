@@ -73,7 +73,8 @@
     <?php if(get_field('funder_logos','options')): ?>
     <section class="funders">
       <h2>funders</h2>
-        <?php
+      <section class="funderImages">
+             <?php
           $slides = get_field('funder_logos','options');
           $slide_amount = count($slides);
           foreach($slides as $slide):
@@ -83,6 +84,8 @@
           <img class="funderLogo" src="<?php echo $slide['sizes']['large']; ?>" alt="<?php echo $slide['alt'];?>" id="<?php echo $slide['id'];?>"/>
 
           <?php endforeach; ?>
+      </section>
+   
           
     </section>
     <?php endif; ?>
