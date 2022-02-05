@@ -2,7 +2,7 @@
 
 
  <main>
-  <h1 class="pageTitle">Upcoming Programming</h1>
+  <h1 class="pageTitle">Upcoming</h1>
   <?php // Start the loop ?>
 
     <?php $args = array( 'post_type' => 'programming', 

@@ -232,19 +232,45 @@ if ($(window).width() < 750) {
 
 }
 
-if ($(window).width() > 775) {
 var headerMenuWidth = $("#menu-header-menu li").width();
-var totalWidth = (parseInt(headerMenuWidth) + 13);
+var totalWidth = (parseInt(headerMenuWidth) + 14);
 var firsChildWith = (parseInt(headerMenuWidth) + 12);
+var nthChildOdd = (parseInt(headerMenuWidth) + 13);
+
+if (($(window).width() > 775) && ($(window).width() < 1300) ) {
+
+// console.log(totalWidth);
+ $("ul.sub-menu li").css({
+
+    'width': (nthChildOdd + 'px')
+  });
+
+ $("#menu-header-menu li:nth-child(1) ul.sub-menu li ").css({
+
+    'width': (firsChildWith + 'px')
+  });
+ $("#menu-header-menu li:nth-child(3) ul.sub-menu li, #menu-header-menu li:nth-child(5) ul.sub-menu li").css({
+
+    'width': (nthChildOdd + 'px')
+  });
+
+}
+
+if ($(window).width() > 1300) {
 // console.log(totalWidth);
  $("ul.sub-menu li").css({
 
     'width': (totalWidth + 'px')
   });
 
- $("#menu-header-menu li:nth-child(1) ul.sub-menu li").css({
+ $("#menu-header-menu li:nth-child(1) ul.sub-menu li , #menu-header-menu li:nth-child(5) ul.sub-menu li").css({
 
-    'width': (firsChildWith + 'px')
+    'width': (totalWidth + 'px')
+  });
+
+ $("#menu-header-menu li:nth-child(3) ul.sub-menu li").css({
+
+    'width': (nthChildOdd + 'px')
   });
 
 }

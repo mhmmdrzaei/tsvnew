@@ -39,8 +39,8 @@
                     <p class="largA">A +</p>
                     </section>
                     <input id="fontSizeRange" type="range" min="15" max="25" value=""> -->
-                    <button class="decreaseFont" value="decrease"> A- </button>
-                    <button class="increaseFont" value="increase"> A+ </button>
+                    <button class="decreaseFont" value="decrease"> - </button>
+                    <button class="increaseFont" value="increase"> + </button>
                     
                   </section>
                   <section class="desaturateMenu">

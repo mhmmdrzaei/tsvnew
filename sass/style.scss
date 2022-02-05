@@ -20,7 +20,7 @@ Default Styling
 @font-face {
   font-family: 'TSV Sans';
   src: url('fonts/TSVSans.otf');
-  font-weight: normal;
+  font-weight: 300;
       font-style: normal; 
 }
 
@@ -34,6 +34,9 @@ body {
 	background: #fffeb5;
 	@include fontSize(9);
 	outline: none;
+	font-weight: 300;
+	word-wrap: break-word;
+
 }
 main {
 	max-width: 1440px;
@@ -53,6 +56,7 @@ main {
 h1 {
 	text-transform: uppercase;
 	@include fontSize(9);
+	font-weight: 300;
 }
 .pageTitle {
 
@@ -64,6 +68,7 @@ h1 {
 	border: 1px solid black;
 	position: relative;
 	top: -1px;
+	font-weight: 300;
 
 }
 .RentalPageTitle {
@@ -126,7 +131,7 @@ button {
 			border-radius: 0;
 		}
 		.accessMenuCover {
-			width: 30%;
+			width: 29%;
 			.access {
 				@include fontSize(9);
 				text-transform: uppercase;
@@ -146,7 +151,7 @@ button {
 }
 .inspire {
 	position: relative;
-	width: 70%;
+	width: 71%;
 	border: 1px solid black;
 	background: white;
 	h1 {
@@ -188,7 +193,7 @@ button {
 		// border-right:none;
 		a {
 			display: block;
-			width: 100%;
+			// width: 100%;
 		}
 		&:hover {
 			background:#eb5858;
@@ -226,13 +231,13 @@ button {
 	li:nth-child(1) {
 		border-left:1px solid black;
 		ul.sub-menu {
-			min-width: calc(16.666% - 11px);
+			// min-width: calc(16.666% - 11px);
 		}
 	}
 		li:nth-child(2) {
 		// border-left:1px solid black;
 		ul.sub-menu {
-			min-width: calc(16.666% - 9px);
+			// min-width: calc(16.666% - 9px);
 		}
 	}
 	.current-menu-parent,.current-menu-item {
@@ -251,7 +256,7 @@ body.whiteAll {
 
 
 
-#menu-header-menu li  > ul.sub-menu {
+#menu-header-menu li> ul.sub-menu {
   display: none;
   
 }
@@ -353,7 +358,7 @@ body.whiteAll {
 	
 	img {
 		width: 24%;
-		height: fit-content;
+		height: auto;
 	}
 }
 // memebership
@@ -807,6 +812,7 @@ body.whiteAll {
 		}
 	}
 	.postMainInnerContentFull {
+		width: calc(100% - 1px);
 		@extend .textBoxStyling;
 		.tagList {
 			@extend .flex;
@@ -862,25 +868,31 @@ select {
 		margin-right: 2%;
 		margin-bottom: 20px;
 		.gearEachInner {
-			background: white;
-			border: 1px solid black;
+
 			h2 {
-				border:0;
-				border-bottom:1px solid black;
+				border:1px solid black;
+				border-bottom:0;
 			}
 			img {
-				border-bottom:1px solid black;
+				border:1px solid black;
+				border-bottom:0;
 			}
 			.pricesection {
 				@extend .flex;
-				justify-content: space-around;
+				justify-content: space-between;
+				position: relative;
+				top: -5px;
+				width: 100%;
+				background: white;
+				border:1px solid black;
+				border-bottom:0;
 
 				section {
 					// padding: 10px 0;
 					border-left: 1px solid black;
 					text-align: center;
-					position: relative;
-					top: -4px;
+					width: 33%;
+					
 
 
 					padding: 10px 5px;
@@ -900,7 +912,9 @@ select {
 				background: #75fb4c;
 				border: 0;
 				padding: 5px;
-				border-top: 1px solid black;
+				border:1px solid black;
+				position: relative;
+				top: -5px;
 			}
 		}
 
@@ -923,7 +937,7 @@ select {
     text-transform: uppercase;
     outline: 0;
     border-top:0;
-    background: #75fb4c;
+    background: white;
     cursor: pointer;
 	}
 }
@@ -1047,6 +1061,7 @@ select {
 	 		height: auto;
 	 		text-transform: uppercase;
 	 		background: white;
+	 		font-size: .9rem !important;
 	 	}
 	.desaturateMenu  {
 		margin-bottom: 10px;
@@ -1058,10 +1073,12 @@ select {
 	}
 	.fontSizeIncrease {
 		margin-bottom: 10px;
+		display: flex;
+		justify-content:space-between;
 
 		button {
 			border: 1px solid black;
-			padding: 5px;
+			padding: 5px 12px;
 			background: white;
 			border-radius: 0;
 		}
@@ -1180,21 +1197,31 @@ select {
 
 
 	@media(max-width: 1278px){ 
-		// #menu-header-menu li {
-		// 			ul.sub-menu {
-		// 				min-width: calc(16.666% - 11px);
+				.output {
+				.gearEach {
+					// width: 48%;
+					.gearEachInner {
+						.pricesection {
+							display: block;
+							section {
+							width: 100%;
+							border-left:0;
+							border-bottom: 1px solid black;
+						}
+							section:nth-last-child(1) {
+							border-bottom: 0;
+							width: 100%;
+						}
+						
+					}
+				}
 
-		// 				li {
-		// 					max-width: auto;
-		// 					width: auto;
-		// 					a {
-		// 						max-width: 140px;
-		// 					}
-
-		// 								}
-		// 				// left: -0.5vw;
-		// 			}
-		// }
+			}
+			// .gearEach:nth-child(3n) {
+			//     margin-right: 2%;
+			// }
+					
+		}
 
 
 	}
@@ -1388,7 +1415,7 @@ select {
 				}
 			}
 			.smallWidthContent {
-				width: 48%;
+				width: 100%;
 			}
 			.footerContainer {
 				.contact, .landAcknowledgement, .footermenu, .mainlingList {
@@ -1448,24 +1475,14 @@ select {
 			}
 			.output {
 				.gearEach {
-					width: 48%;
-					.gearEachInner {
-						.pricesection {
-							display: block;
-							section {
-							border-left:0;
-							border-bottom: 1px solid black;
-						}
-							section:nth-last-child(1) {
-							border-bottom: 0;
-						}
-						
-					}
-				}
+					width: 49%;
 
 			}
 			.gearEach:nth-child(3n) {
 			    margin-right: 2%;
+			}
+			.gearEach:nth-child(2n) {
+			    margin-right: 0%;
 			}
 					
 		}
@@ -1475,7 +1492,8 @@ select {
 			}
 			.pageSingleContentHalf {
 				position: relative;
-				top: -7px;
+				top: -8px;
+				left: 0;
 			}
 		}
 		.currentWorkshop {

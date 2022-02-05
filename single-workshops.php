@@ -22,6 +22,10 @@
     </section>
 
   </section>
+  <?php $instructor = get_field('instructor_workshops'); 
+  // if(!empty($row['oc_retailer']))
+    if (!empty($instructor )) {
+  ?>
   <section class="workshopDetails">
     <section class="titleWSSingle">
       <section class="wsSingleTitle">Workshop</section>
@@ -85,6 +89,7 @@
   </section>
       
   </section>
+<?php }; ?>
   <section class="bios">
     <?php if( have_rows('biographies_copy' ) ): ?>
       <h3>Biographies:</h3>

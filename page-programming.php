@@ -1,7 +1,7 @@
 <?php get_header();  ?>
 
 <main>
-  <h1 class="pageTitle"><?php the_title(); ?></h1>
+  <h1 class="pageTitle">Current</h1>
   <?php // Start the loop ?>
 
     <?php $args = array( 'post_type' => 'programming', 
