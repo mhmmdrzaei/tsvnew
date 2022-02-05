@@ -5,12 +5,14 @@
       <h2>Contact</h2>
       <section class="galleryAddress">
         <?php the_field('gallery_address', 'options'); ?>
+        <br>
+        <a href="mailto:<?php the_field('footer_email', 'options'); ?>"><?php the_field('footer_email', 'options'); ?></a>
       </section>
       <section class="officeHours">
         <?php the_field('office_hours', 'options'); ?>
       </section>
       <section class="galleryHours">
-        <?php the_field('office_hours', 'options'); ?>
+        <?php the_field('gallery_hours', 'options'); ?>
       </section>
       <section class="socialLinks">
         <?php if( have_rows('social_links' , 'options') ): ?>

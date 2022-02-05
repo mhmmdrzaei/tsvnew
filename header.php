@@ -20,45 +20,58 @@
       <a  class="logoLink"href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name', 'display' ); ?>" rel="home">
       <?php require 'template-parts/logo.php'; ?>
     </a>
-    <section class="inspire">
-      <?php $cars = get_field( 'rotating_page_tag','options' );  ?>
-      <?php if( is_array( $cars ) ) { ?>
-        <?php $car = array_rand( $cars ); ?>
-       <h1><?php echo $cars[$car]['tag_line'];?></h1> 
-      <?php } ?>
-      
-    </section>
-    <section class="accessMenuCover">
-          <button class="access">Accessibility</button>
-          <section class="accessMenu">
-            <section class="fontSizeIncrease">
-<!--               <section class="fontSizeRange">
-              <p class="smallA">- A</p>
-              <p class="largA">A +</p>
-              </section>
-              <input id="fontSizeRange" type="range" min="15" max="25" value=""> -->
-              <button class="decreaseFont" value="decrease"> A- </button>
-              <button class="increaseFont" value="increase"> A+ </button>
-              
-            </section>
-            <section class="desaturateMenu">
-              <button class="desaturate">Desaturate Page</button>
-            </section>
-      <!--       <section class="darkMode">
-              <button class="darkModeButton">Dark Mode</button>
-            </section> -->
-            <section class="clearselections">
-              <button class="clearInputs">Clear Inputs</button>
-            </section>
-    </section>
-    
+    <section class="headerDetails">
+      <section class="inspire">
+        <?php $cars = get_field( 'rotating_page_tag','options' );  ?>
+        <?php if( is_array( $cars ) ) { ?>
+          <?php $car = array_rand( $cars ); ?>
+         <h1><?php echo $cars[$car]['tag_line'];?></h1> 
+        <?php } ?>
+        
+      </section>
+      <button class="menuButtonMobile">Menu</button>
+          <section class="accessMenuCover">
+                <button class="access">Accessibility</button>
+                <section class="accessMenu">
+                  <section class="fontSizeIncrease">
+      <!--               <section class="fontSizeRange">
+                    <p class="smallA">- A</p>
+                    <p class="largA">A +</p>
+                    </section>
+                    <input id="fontSizeRange" type="range" min="15" max="25" value=""> -->
+                    <button class="decreaseFont" value="decrease"> A- </button>
+                    <button class="increaseFont" value="increase"> A+ </button>
+                    
+                  </section>
+                  <section class="desaturateMenu">
+                    <button class="desaturate">Desaturate Page</button>
+                  </section>
+            <!--       <section class="darkMode">
+                    <button class="darkModeButton">Dark Mode</button>
+                  </section> -->
+                  <section class="clearselections">
+                    <button class="clearInputs">Clear Inputs</button>
+                  </section>
+                </section>
+          </section>
 
     </section>
     </section>
-    <?php wp_nav_menu( array(
-        'container' => false,
-        'theme_location' => 'primary'
-      )); ?>
+    <nav class="menuItems">
+      <section class="menuheadings">
+        <section class="siteTitle">
+          <section class="trinityMenu">Trinity</section>
+          <section class="squareMenu">Square</section>
+          <section class="videoMenu">Video</section>
+        </section>
+        <button class="close">Close</button>
+      </section>
+      <?php wp_nav_menu( array(
+          'container' => false,
+          'theme_location' => 'primary'
+        )); ?>
+    </nav>
+
 
 
   </main>

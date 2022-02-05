@@ -4,9 +4,8 @@
   
   <?php // Start the loop ?>
   <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-  <h1 class="pageTitle">Mission</h1>
+  <h1 class="pageTitle"><?php the_title(); ?></h1>
   <section class="pageSingleContentBox">
-  <h2><?php the_title(); ?></h2>
   <?php if ( has_post_thumbnail() ) { ?>
    <figure class="pageSignleImage">
      <?php the_post_thumbnail('large');?>
