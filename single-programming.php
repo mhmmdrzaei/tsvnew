@@ -5,11 +5,11 @@
       $cats = get_the_category();
       if (in_category( 182 )) {
      ?>
-     <h1 class="pageTitle">Archive</h1>
+     <h1 class="pageTitle">Past</h1>
    <?php } elseif (in_category( 772 )) { ; ?> 
-    <h1 class="pageTitle">Current Programming</h1>
+    <h1 class="pageTitle">Current</h1>
   <?php } else { ; ?> 
-    <h1 class="pageTitle">Upcoming Programming</h1>
+    <h1 class="pageTitle">Upcoming</h1>
   <?php } ?>
     
     <section class="postMainContent">
@@ -32,7 +32,7 @@
   </section>
   <section class="bios">
     <?php if( have_rows('biographies' ) ): ?>
-      <h3>Biographies:</h3>
+      <h3>Biographies</h3>
         <?php while( have_rows('biographies') ): the_row();  ?>
         <section class="bioEach">
           <h4><?php the_sub_field('artist__participant_name'); ?></h4>

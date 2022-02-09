@@ -247,8 +247,19 @@ button {
 
 body.whiteAll {
 	#menu-header-menu li:hover, #menu-footer-menu li:hover {
-		background: white;
+		background: black;
+		a {
+			color: white;
+		}
 	}
+	#menu-header-menu li ul.sub-menu li a {
+		color: black;
+	}
+	#menu-header-menu li ul.sub-menu li:hover {
+		a {
+			color: white;
+		}
+		}
 }
 
 // ul li:hover > ul,
@@ -525,12 +536,66 @@ body.whiteAll {
 	margin-top: 20px;
 	padding: 0 10px
 }
+//services
+
+.serviceMainContent {
+	h2,h3 {
+		position: relative;
+		top: 1px;
+			}
+	p {
+		margin: 0;
+		padding: 10px;
+		background: white;
+		border-left: 1px solid black;
+		border-right: 1px solid black;
+	}
+
+	.wp-block-separator {
+		border: 0;
+		padding: 10px;
+		border-top: 1px solid black;
+		margin: 0;
+	}
+	.wp-block-table {
+		@extend .membershipOptionsTable;
+		table thead tr th:nth-child(1) {
+    background: #a3a1e9;
+    padding: 5px;
+    border-top: 1px solid #000;
+    border-left: 1px solid #000;
+}
+	}
+}
+.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column:not(:first-child) {
+    margin-left: 0 !important;
+}
+
+@media (min-width: 600px) and (max-width: 781px) {
+.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column:not(:only-child) {
+    flex-basis: calc(52% - var(--wp--style--block-gap, 2em)/2)!important;
+    // flex-grow: 0;
+}
+}
+.wp-block-column {
+	figure {
+			margin: 0;
+		border: 1px solid black;
+		// border-right: 0;
+		position: relative;
+		left: 1px;
+	}
+	p:nth-last-child(1) {
+		border-bottom: 1px solid black;
+	}
+}
 
 //publication page 
 .pagePublications {
 	@extend .flex;
 	justify-content: space-between;
 }
+
 .PublicationPost {
 	width: 32%;
 	margin-bottom: 20px;
@@ -834,7 +899,7 @@ body.whiteAll {
 		background: #d0fafb;
 	}
 	.bioEach {
-		width: 48%;
+		width: 49.3333%;
 		margin: 20px 0;
 		h4 {
 			text-align: center;
@@ -842,6 +907,8 @@ body.whiteAll {
 			padding: 5px;
 			border: 1px solid black;
 			margin:0;
+			text-transform: uppercase;
+			font-weight: 300;
 		}
 		.participantBio {
 			@extend .textBoxStyling;
@@ -852,6 +919,10 @@ body.whiteAll {
 		}
 
 	}
+	// .bioEach:nth-child(even) {
+	// 	margin: 20px \ 20px 0;
+
+	// }
 }
 
 //rentals page 
@@ -1034,11 +1105,48 @@ select {
 }
 .whiteAll {
 	background: white !important;
+	a {
+		border-bottom: 2px solid black;
+		 &:hover {
+		 	border-bottom: 2px solid black;
+		 }
+	}
+	.menu-item a, .logoLink, h2 a, #archiveEach li a, .navigation p a, .registerLink a, .alignleft a , .alignright a, .linksEach li a{
+		border-bottom: 0;
+		&:hover {
+			border-bottom: 0;
+		}
+	}
+	a.ctaLink {
+			border-bottom: 0;
+		&:hover {
+			border-bottom: 0;
+		}
+	}
+
+
 }
 .blackBack {
 	background: black !important;
 	border-color: white;
-	color:white;
+	color:white !important;
+
+
+
+}
+li.current_page_ancestor.blackBack > a  {
+	color: white;
+	ul.sub-menu {
+		li {
+		background: white;
+		a {
+		color: black;
+		}
+
+		} 
+
+	} 
+
 }
 .whiteText {
 	color: white;
@@ -1078,10 +1186,15 @@ select {
 
 		button {
 			border: 1px solid black;
-			padding: 5px 12px;
+			padding: 10px 15px;
 			background: white;
 			border-radius: 0;
 		}
+
+		button:nth-child(1) {
+			padding: 10px 12px;
+		}
+
 	}
 
 	// .fontSizeRange {
@@ -1343,6 +1456,7 @@ select {
 		    		padding: 5px 0 0 0;
 		    		border-top: 0;
 		    		border-right: 0;
+		    		background: #eb5858;
 		    		a {
 		    			padding-bottom: 5px;
 		    		}
@@ -1353,7 +1467,7 @@ select {
 
 		    			li {
 		    				position: inherit;
-		    				background: #75fb4c;
+		    				background: white;
 		    				border-bottom: 0;
 		    				border-top: 1px solid black;
 		    				border-left: 0;
@@ -1472,6 +1586,7 @@ select {
 			}
 			.bios .bioEach {
 				width: 100%;
+
 			}
 			.output {
 				.gearEach {

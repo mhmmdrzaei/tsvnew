@@ -6,7 +6,7 @@ var gear;
 	url: 'https://tsv.amsnetwork.ca/api/v3/assets?type=Equipment&per_page=600',
 	type: 'GET',
 	beforeSend: function (xhr) {
-	    xhr.setRequestHeader('Authorization', 'Bearer ');
+	    xhr.setRequestHeader('Authorization', 'Bearer e250cc61ae026bc9ad3c4c616c06b4cf99018fee7a6da149fc3528e591bf77d4');
 	},
 	data: {
 	},
@@ -186,16 +186,17 @@ $(".increaseFont,.decreaseFont").click(function () {
 
 
 if (localStorage.getItem('screenModeSaturateTokenState') == 'desaturate') {
-   $('body, h1, h2, h3, h4, .bios .bioEach h4, .membershipOptionBox .membershipBoxPrice, #menu-header-menu .current-menu-item, #menu-header-menu .current-menu-parent, .fullwidthpost h2, .postMainContent .postMainInnerContentFull .tagList a, select, .registerLink').addClass('whiteAll');
-   $('.tagList a, .postMainContent .postMainInnerContent .tagList a, .ctaLink, .membershipOptionsTable table thead tr th:nth-child(n+2), button, .button, .openWSHome').addClass('blackBack');
+   $('body, h1, h2, h3, h4, .bios .bioEach h4, .membershipOptionBox .membershipBoxPrice, .fullwidthpost h2, .postMainContent .postMainInnerContentFull .tagList a, select, .registerLink, #menu-header-menu .current-menu-item').addClass('whiteAll');
+   $('.tagList a, .postMainContent .postMainInnerContent .tagList a, .ctaLink, .membershipOptionsTable table thead tr th:nth-child(n+2), button, .button, .openWSHome, #menu-header-menu .current_page_ancestor,.fullWSHome').addClass('blackBack');
 
   }
 
 
 $('.desaturateMenu').on('click',function(){
 	localStorage.setItem('screenModeSaturateTokenState', 'desaturate');
-	$('body, h1, h2, h3, h4, .bios .bioEach h4, .membershipOptionBox .membershipBoxPrice, #menu-header-menu .current-menu-item, #menu-header-menu .current-menu-parent, .fullwidthpost h2, .postMainContent .postMainInnerContentFull .tagList a, select, .registerLink').addClass('whiteAll');
-	$('.tagList a, .postMainContent .postMainInnerContent .tagList a, .ctaLink, .membershipOptionsTable table thead tr th:nth-child(n+2), button, .button, .openWSHome').addClass('blackBack');
+	$('body, h1, h2, h3, h4, .bios .bioEach h4, .membershipOptionBox .membershipBoxPrice, .fullwidthpost h2, .postMainContent .postMainInnerContentFull .tagList a, select, .registerLink, #menu-header-menu .current-menu-item').addClass('whiteAll');
+	$('.tagList a, .postMainContent .postMainInnerContent .tagList a, .ctaLink, .membershipOptionsTable table thead tr th:nth-child(n+2), button, .button, .openWSHome, #menu-header-menu .current_page_ancestor, .fullWSHome').addClass('blackBack');
+
 
 
 });
@@ -203,10 +204,10 @@ $('.clearInputs').on('click',function(){
 	localStorage.setItem('screenModeSaturateTokenState', 'saturated');
 	// localStorage.setItem('FontSize', normalFontSize);
 	// $("body,h1.pageTitle, h2, h3, h4, h5, h6, a").css("font-size", '.9rem');
-	$('body, h1, h2, h3, button, .button, .membershipOptionBox .membershipBoxPrice, #menu-header-menu .current-menu-item, #menu-header-menu .current-menu-parent, .membershipOptionsTable table thead tr th:nth-child(n+2),.ctaLink, .fullwidthpost h2, .ctaLink, .postMainContent .postMainInnerContent .tagList a, .postMainContent .postMainInnerContentFull .tagList a,#menu-header-menu li:hover, select').removeClass('whiteAll');
-	$('.tagList a, .postMainContent .postMainInnerContent .tagList a, .ctaLink, .membershipOptionsTable table thead tr th:nth-child(n+2), button, .button').removeClass('blackBack');
+	$('body, h1, h2, h3, button, .button, .membershipOptionBox .membershipBoxPrice, #menu-header-menu, #menu-header-menu, .membershipOptionsTable table thead tr th:nth-child(n+2),.ctaLink, .fullwidthpost h2, .ctaLink, .postMainContent .postMainInnerContent .tagList a, .postMainContent .postMainInnerContentFull .tagList a,#menu-header-menu li:hover, select, #menu-header-menu .current-menu-item').removeClass('whiteAll');
+	$('.tagList a, .postMainContent .postMainInnerContent .tagList a, .ctaLink, .membershipOptionsTable table thead tr th:nth-child(n+2), button, .button ,  #menu-header-menu .current_page_ancestor,.fullWSHome').removeClass('blackBack');
 	// $('#fontSizeRange').val('0');
-	// // curFontSizeNew = 15;
+	// // curFontSizeNew = 15;å
 	// document.getElementById("fontSizeRange").value = curFontSizeNew;
 	localStorage.setItem('FontSize', 'normal');
 	$('body, h1.pageTitle, h2, h3, h4, h5, h6, a').css('font-size', '.9rem');
