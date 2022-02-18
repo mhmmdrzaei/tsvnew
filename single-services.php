@@ -2,10 +2,9 @@
 <main>
   <section class="postmain">
     <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-    <h1 class="pageTitle">Services</h1>
+    <h1 class="pageTitle"><?php the_title(); ?></h1>
     
-    <section class="serviceMainContent">
-      <h2 class="entry-title"><?php the_title(); ?></h2>
+    <section class="serviceMainContent"> 
       <?php if ( has_post_thumbnail() ) { ?>
         <figure class="sideImagePostsSingle">
           <?php the_post_thumbnail('large');?>

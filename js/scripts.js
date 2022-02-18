@@ -1,4 +1,5 @@
 $(function(){
+
 var gear;
 
 
@@ -6,7 +7,7 @@ var gear;
 	url: 'https://tsv.amsnetwork.ca/api/v3/assets?type=Equipment&per_page=600',
 	type: 'GET',
 	beforeSend: function (xhr) {
-	    xhr.setRequestHeader('Authorization', 'Bearer e250cc61ae026bc9ad3c4c616c06b4cf99018fee7a6da149fc3528e591bf77d4');
+	    xhr.setRequestHeader('Authorization', 'Bearer ');
 	},
 	data: {
 	},
@@ -165,20 +166,20 @@ var resetFont = $('body, h1.pageTitle, h2, h3, h4, h5, h6, a').css('font-size','
 var curFontSize= localStorage["FontSize"];
 if (curFontSize){
     //set to previously saved fontsize if available
-     $('body, h1.pageTitle, h2, h3, h4, h5, h6, a').css('font-size', curFontSize);
+     $('body, h1.pageTitle, h2, h3, h4, h5, h6, a, .access, .desaturate, .clearInputs').css('font-size', curFontSize);
 }
 
 $(".increaseFont,.decreaseFont").click(function () {
     var type = $(this).val();
-    curFontSize = $('body, h1.pageTitle, h2, h3, h4, h5, h6, a').css('font-size'); 
+    curFontSize = $('body, h1.pageTitle, h2, h3, h4, h5, h6, a, .access , .desaturate, .clearInputs').css('font-size'); 
    // if () {
-    if ((type == 'increase')&& (parseInt(curFontSize) < 28)) {
-        $('body, h1.pageTitle, h2, h3, h4, h5, h6, a').css('font-size', parseInt(curFontSize) + 1 + "px");
-         $('.desaturate, .clearInputs').css('font-size', '.9rem');
+    if ((type == 'increase')&& (parseInt(curFontSize) < 25)) {
+        $('body, h1.pageTitle, h2, h3, h4, h5, h6, a, .access, .desaturate, .clearInputs').css('font-size', parseInt(curFontSize) + 1 + "px");
+         // $('.desaturate, .clearInputs').css('font-size', '.9rem');
 
     } else if((type == 'decrease')&& (parseInt(curFontSize) > 15)) {
-        $('body, h1.pageTitle, h2, h3, h4, h5, h6, a').css('font-size', parseInt(curFontSize) - 1 + "px");
-         $('.desaturate, .clearInputs').css('font-size', '.9rem');
+        $('body, h1.pageTitle, h2, h3, h4, h5, h6, a, .access, .desaturate, .clearInputs').css('font-size', parseInt(curFontSize) - 1 + "px");
+         // $('.desaturate, .clearInputs').css('font-size', '.9rem');
     }
     localStorage.setItem('FontSize', curFontSize);
 });
@@ -186,16 +187,16 @@ $(".increaseFont,.decreaseFont").click(function () {
 
 
 if (localStorage.getItem('screenModeSaturateTokenState') == 'desaturate') {
-   $('body, h1, h2, h3, h4, .bios .bioEach h4, .membershipOptionBox .membershipBoxPrice, .fullwidthpost h2, .postMainContent .postMainInnerContentFull .tagList a, select, .registerLink, #menu-header-menu .current-menu-item').addClass('whiteAll');
-   $('.tagList a, .postMainContent .postMainInnerContent .tagList a, .ctaLink, .membershipOptionsTable table thead tr th:nth-child(n+2), button, .button, .openWSHome, #menu-header-menu .current_page_ancestor,.fullWSHome').addClass('blackBack');
+   $('body, h1, h2, h3, h4, .bios .bioEach h4, .membershipOptionBox .membershipBoxPrice, .fullwidthpost h2, .postMainContent .postMainInnerContentFull .tagList a, select, .registerLink, .gearEachInner h2, .specsAvail').addClass('whiteAll');
+   $('.tagList a, .postMainContent .postMainInnerContent .tagList a, .ctaLink, .membershipOptionsTable table thead tr th:nth-child(n+2), button, .button, .openWSHome, #menu-header-menu .current_page_ancestor,.fullWSHome,.current-menu-item, .lds-roller div').addClass('blackBack');
 
   }
 
 
 $('.desaturateMenu').on('click',function(){
 	localStorage.setItem('screenModeSaturateTokenState', 'desaturate');
-	$('body, h1, h2, h3, h4, .bios .bioEach h4, .membershipOptionBox .membershipBoxPrice, .fullwidthpost h2, .postMainContent .postMainInnerContentFull .tagList a, select, .registerLink, #menu-header-menu .current-menu-item').addClass('whiteAll');
-	$('.tagList a, .postMainContent .postMainInnerContent .tagList a, .ctaLink, .membershipOptionsTable table thead tr th:nth-child(n+2), button, .button, .openWSHome, #menu-header-menu .current_page_ancestor, .fullWSHome').addClass('blackBack');
+	$('body, h1, h2, h3, h4, .bios .bioEach h4, .membershipOptionBox .membershipBoxPrice, .fullwidthpost h2, .postMainContent .postMainInnerContentFull .tagList a, select, .registerLink, .gearEachInner h2, .specsAvail').addClass('whiteAll');
+	$('.tagList a, .postMainContent .postMainInnerContent .tagList a, .ctaLink, .membershipOptionsTable table thead tr th:nth-child(n+2), button, .button, .openWSHome, #menu-header-menu .current_page_ancestor, .fullWSHome,.current-menu-item, .lds-roller div ').addClass('blackBack');
 
 
 
@@ -204,13 +205,13 @@ $('.clearInputs').on('click',function(){
 	localStorage.setItem('screenModeSaturateTokenState', 'saturated');
 	// localStorage.setItem('FontSize', normalFontSize);
 	// $("body,h1.pageTitle, h2, h3, h4, h5, h6, a").css("font-size", '.9rem');
-	$('body, h1, h2, h3, button, .button, .membershipOptionBox .membershipBoxPrice, #menu-header-menu, #menu-header-menu, .membershipOptionsTable table thead tr th:nth-child(n+2),.ctaLink, .fullwidthpost h2, .ctaLink, .postMainContent .postMainInnerContent .tagList a, .postMainContent .postMainInnerContentFull .tagList a,#menu-header-menu li:hover, select, #menu-header-menu .current-menu-item').removeClass('whiteAll');
-	$('.tagList a, .postMainContent .postMainInnerContent .tagList a, .ctaLink, .membershipOptionsTable table thead tr th:nth-child(n+2), button, .button ,  #menu-header-menu .current_page_ancestor,.fullWSHome').removeClass('blackBack');
+	$('body, h1, h2, h3, button, .button, .membershipOptionBox .membershipBoxPrice, #menu-header-menu, #menu-header-menu, .membershipOptionsTable table thead tr th:nth-child(n+2),.ctaLink, .fullwidthpost h2, .ctaLink, .postMainContent .postMainInnerContent .tagList a, .postMainContent .postMainInnerContentFull .tagList a,#menu-header-menu li:hover, select, .gearEachInner h2, .specsAvail, .registerLink').removeClass('whiteAll');
+	$('.tagList a, .postMainContent .postMainInnerContent .tagList a, .ctaLink, .membershipOptionsTable table thead tr th:nth-child(n+2), button, .button ,  #menu-header-menu .current_page_ancestor, .openWSHome, .fullWSHome, .current-menu-item, .lds-roller div').removeClass('blackBack');
 	// $('#fontSizeRange').val('0');
 	// // curFontSizeNew = 15;å
 	// document.getElementById("fontSizeRange").value = curFontSizeNew;
 	localStorage.setItem('FontSize', 'normal');
-	$('body, h1.pageTitle, h2, h3, h4, h5, h6, a').css('font-size', '.9rem');
+	$('body, h1.pageTitle, h2, h3, h4, h5, h6, a, .access, .desaturate, .clearInputs').css('font-size', '.9rem');
 
 });
 if ($(window).width() < 750) {
@@ -233,54 +234,40 @@ if ($(window).width() < 750) {
 
 }
 
-var headerMenuWidth = $("#menu-header-menu li").width();
-var totalWidth = (parseInt(headerMenuWidth) + 14);
-var firsChildWith = (parseInt(headerMenuWidth) + 12);
-var nthChildOdd = (parseInt(headerMenuWidth) + 13);
 
-if (($(window).width() > 775) && ($(window).width() < 1300) ) {
+if ($(window).width() > 775) {
 
-// console.log(totalWidth);
- $("ul.sub-menu li").css({
+$('ul.sub-menu li').each( function(){
+	var headerMenuWidth = $(this).parents().eq(1).width();
+	var totalWidth = (headerMenuWidth + 12);
+	// console.log(headerMenuWidth);
 
-    'width': (nthChildOdd + 'px')
-  });
+	$(this).css({
+		'width' : (totalWidth + 'px')
+	});
 
- $("#menu-header-menu li:nth-child(1) ul.sub-menu li ").css({
-
-    'width': (firsChildWith + 'px')
-  });
- $("#menu-header-menu li:nth-child(3) ul.sub-menu li, #menu-header-menu li:nth-child(5) ul.sub-menu li").css({
-
-    'width': (nthChildOdd + 'px')
-  });
+});
 
 }
 
-if ($(window).width() > 1300) {
-// console.log(totalWidth);
- $("ul.sub-menu li").css({
-
-    'width': (totalWidth + 'px')
-  });
-
- $("#menu-header-menu li:nth-child(1) ul.sub-menu li , #menu-header-menu li:nth-child(5) ul.sub-menu li").css({
-
-    'width': (totalWidth + 'px')
-  });
-
- $("#menu-header-menu li:nth-child(3) ul.sub-menu li").css({
-
-    'width': (nthChildOdd + 'px')
-  });
-
-}
 $('.menuButtonMobile').on('click', function(){
 	$('.menuItems').css('display', 'block');
 });
 $('.close').on('click', function(){
 	$('.menuItems').css('display', 'none');
 });
+
+
+var fontSizeCurr = parseFloat($('a').css('font-size'));
+if ((fontSizeCurr > 24) && ($(window).width() < 1349)){
+	// console.log('test');
+	$('#menu-header-menu li').addClass('adjustedMenu');
+}
+
+if ((fontSizeCurr > 24) && ($(window).width() < 505)){
+	// console.log('test');
+	$('.menuheadings').addClass('adjustedMenuHeadings');
+}
 
 
 });
