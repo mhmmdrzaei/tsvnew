@@ -1,3 +1,6 @@
+
+"use strict"; 
+
 $(function(){
 
 var gear;
@@ -45,7 +48,7 @@ var gear;
 				var priceWeek = priceDay * 3;
 				var priceMonth = priceDay * 16;
 
-					 $('.output').append('<article class="gearEach"><section class="gearEachInner"><h2>'+ name +'</h2><img src="'+image+'"><section class="pricesection"><section class="priceDay">$'+priceDay+'/DAY</section><section class="priceweek">$'+priceWeek+'/WEEK</section><section class="priceMonth">$'+priceMonth+'/MONTH</section></section><button class="specsAvail">Specs & Availability</button></section><section class="gearEachMore"><section class="descriptionGear"><h4>Description</h4>'+description+'</section><section class="accInc"><h4>Accessories Included</h4>'+included_accessories+'</section><a href="'+external_url_resources+'" target="_blank">Additional Gear Information(PDF)</a></section></article>' );
+					 $('.output').append('<article class="gearEach"><section class="gearEachInner"><h2>'+ name +'</h2><figure><img src="'+image+'"></figure><section class="pricesection"><section class="priceDay">$'+priceDay+'/DAY</section><section class="priceweek">$'+priceWeek+'/WEEK</section><section class="priceMonth">$'+priceMonth+'/MONTH</section></section><button class="specsAvail">More Information</button></section><section class="gearEachMore"><section class="descriptionGear"><h4>Description</h4>'+description+'</section><section class="accInc"><h4>Accessories Included</h4>'+included_accessories+'</section><a href="'+external_url_resources+'" target="_blank">Additional Gear Information(PDF)</a></section></article>' );
 				}
 				// 
 				// console.log (name);
@@ -72,7 +75,7 @@ var gear;
 				var PriceDayOne = priceDay * 1;
 				var priceWeek = priceDay * 3;
 				var priceMonth = priceDay * 16;
-					 $('.output').append('<article class="gearEach"><section class="gearEachInner"><h2>'+ name +'</h2><img src="'+image+'"><section class="pricesection"><section class="priceDay">$'+priceDay+'/DAY</section><section class="priceweek">$'+priceWeek+'/WEEK</section><section class="priceMonth">$'+priceMonth+'/MONTH</section></section><button class="specsAvail">Specs & Availability</button></section><section class="gearEachMore"><section class="descriptionGear"><h4>Description</h4>'+description+'</section><section class="accInc"><h4>Accessories Included</h4>'+included_accessories+'</section><a href="'+external_url_resources+'" target="_blank">Additional Gear Information(PDF)</a></section></article>' );
+					 $('.output').append('<article class="gearEach"><section class="gearEachInner"><h2>'+ name +'</h2><figure><img src="'+image+'"></figure><section class="pricesection"><section class="priceDay">$'+priceDay+'/DAY</section><section class="priceweek">$'+priceWeek+'/WEEK</section><section class="priceMonth">$'+priceMonth+'/MONTH</section></section><button class="specsAvail">More Information</button></section><section class="gearEachMore"><section class="descriptionGear"><h4>Description</h4>'+description+'</section><section class="accInc"><h4>Accessories Included</h4>'+included_accessories+'</section><a href="'+external_url_resources+'" target="_blank">Additional Gear Information(PDF)</a></section></article>' );
 				}
 
 				// 
@@ -112,8 +115,20 @@ $('.gearEach').on('click', 'button.specsAvail', function() {
 });
 //access menu 
 $('.access').on('click',function(){
+	$(this).addClass('isOpen');
 	$('.accessMenu').toggle();
+	if ( $('.access').hasClass( "isOpen" ) ) {
+			$(this).on('click',function(){
+				$(this).removeClass('isOpen');
+				window.location.reload();
+			})
+
+			
+		}
+
 });
+
+
 
 
 
@@ -259,14 +274,20 @@ $('.close').on('click', function(){
 
 
 var fontSizeCurr = parseFloat($('a').css('font-size'));
-if ((fontSizeCurr > 24) && ($(window).width() < 1349)){
+if ((fontSizeCurr > 23) && ($(window).width() < 1349)){
 	// console.log('test');
 	$('#menu-header-menu li').addClass('adjustedMenu');
 }
 
-if ((fontSizeCurr > 24) && ($(window).width() < 505)){
+if ((fontSizeCurr > 22) && ($(window).width() < 505)){
 	// console.log('test');
 	$('.menuheadings').addClass('adjustedMenuHeadings');
+}
+
+if ((fontSizeCurr > 19) && ($(window).width() < 1050) && ($(window).width() > 750)){
+
+	$('.inspire').css('width','55%');
+	$('.accessMenuCover').css('width','45%');
 }
 
 

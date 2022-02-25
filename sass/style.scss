@@ -950,9 +950,11 @@ select {
 				border:1px solid black;
 				border-bottom:0;
 			}
-			img {
+			figure {
 				border:1px solid black;
 				border-bottom:0;
+				padding: 40px;
+				background: white;
 			}
 			.pricesection {
 				@extend .flex;
@@ -966,19 +968,14 @@ select {
 
 				section {
 					// padding: 10px 0;
-					border-left: 1px solid black;
+					border-bottom: 1px solid black;
 					text-align: center;
-					width: 33%;
-					
+					width: 100%;
 
 
 					padding: 10px 5px;
-					// margin: 0 auto;
-					// width:33%;
+
 					
-				}
-				section:nth-child(1) {
-					border-left: 0;
 				}
 				
 			}
@@ -1318,48 +1315,6 @@ li.blackBack > a {
 
 	}
 
-
-	@media(max-width: 1278px){ 
-				.output {
-				.gearEach {
-					// width: 48%;
-					.gearEachInner {
-						.pricesection {
-							display: block;
-							section {
-							width: 100%;
-							border-left:0;
-							border-bottom: 1px solid black;
-						}
-							section:nth-last-child(1) {
-							border-bottom: 0;
-							width: 100%;
-						}
-						
-					}
-				}
-
-			}
-			// .gearEach:nth-child(3n) {
-			//     margin-right: 2%;
-			// }
-					
-		}
-
-
-	}
-		@media(max-width: 1067px){ 
-		// 			#menu-header-menu li.menu-item-has-children:nth-last-child(1) {
-		// 	border-left: 1px solid black;
-		// 	border-top:0;
-		// }
-		// #menu-header-menu li.menu-item-has-children:nth-last-child(2) {
-		// 	border-left: 1px solid black;
-		// 	border-top:0;
-		// 	border-right: 0;
-		// }
-
-	}
 
 
 		@media(max-width: 775px){ 

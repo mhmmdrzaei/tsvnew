@@ -19,7 +19,6 @@
         <option value="Presentation">Presentation</option>
         <option value="Mobile Computers">Mobile Computers</option>
         <option value="Virtual Reality">Virtual Reality</option>
-        <option value="Shared Facilities">Shared Facilities</option>
 
       </select>
   </form>

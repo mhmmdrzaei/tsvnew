@@ -4,6 +4,7 @@
 }
 
 .logo {
+
 	.shapes {
 		display: flex;
 		.triangleUp{
@@ -23,6 +24,7 @@
 	     	border-left: 6vw solid transparent;
 	     	border-right: 6vw solid transparent;
 	      	border-top: 12vw solid #000;
+	      	
 		}
 	}
 	.words {
@@ -50,3 +52,46 @@
 		}
 	}
 }
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%) rotate(0deg);
+
+  }
+  30% {
+    transform: translateX(00%) rotate(90deg);
+  }
+  70% {
+  	transform: translateX(00%) rotate(90deg);
+  }
+  100% {
+  	transform: translateX(00) rotate(0deg);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(-100%) rotate(0deg);
+
+  }
+  30% {
+    transform: translateX(00%) rotate(-90deg);
+  }
+  70% {
+  	transform: translateX(00%) rotate(-90deg);
+  }
+  100% {
+  	transform: translateX(00) rotate(0deg);
+  }
+}
+body.home {
+	.logo .shapes {
+		.triangleUp {
+			animation: 5s ease-out 0s 1 slideInFromLeft;
+		}
+		.triangleDown {
+			animation: 5s ease-out 0s 1 slideInFromRight;
+		}
+	}
+}
+
