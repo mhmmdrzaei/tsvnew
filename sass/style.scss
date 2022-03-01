@@ -60,7 +60,7 @@ h1 {
 }
 .pageTitle {
 
-	margin: 0 0 2.5%;
+	margin: 0 0 20px;
 	padding: 5px 0;
 	text-align: center;
 	width: 100%;
@@ -544,6 +544,56 @@ body.whiteAll {
 	padding: 0 10px
 }
 //services
+.serviceTextBox {
+	@extend .textBoxStyling;
+	padding-top: 5px;
+	border-top: 1px solid black;
+	margin-top: 20px;
+}
+.serviceTextBoxH2 {
+	margin-top: 20px;
+}
+.serviceTextBoxH2Content {
+	@extend .textBoxStyling;
+	padding: 20px 5px;
+	// margin-bottom: 20px;
+
+	p {
+		margin: 0;
+
+	}
+}
+.servicePriceTable {
+			 caption {
+				background: #a3a1e9;
+	    	padding: 5px;
+	    	text-transform: uppercase;
+	    	border: 1px solid black;
+	    	border-bottom: 0;
+			}
+			margin-top: 20px;
+
+			@extend .membershipOptionsTable;
+			margin-bottom: 0;
+			table tbody tr td:nth-child(1) {
+				text-align: center;
+			}
+			table thead tr th:nth-child(1) {
+	    background: #a3a1e9;
+	    text-align: center;
+	    padding: 5px;
+	    border-top: 1px solid #000;
+	    border-left: 1px solid #000;
+	}
+}
+.servicehHeadingSeperator {
+	background: #d0fafb;
+	text-align: center;
+	padding: 5px;
+	border: 1px solid black;
+	margin-top: 20px;
+
+}
 
 .serviceMainContent {
 	h2,h3 {
@@ -566,6 +616,7 @@ body.whiteAll {
 	}
 	.wp-block-table {
 		@extend .membershipOptionsTable;
+
 		table thead tr th:nth-child(1) {
     background: #a3a1e9;
     padding: 5px;
@@ -646,6 +697,34 @@ body.whiteAll {
 			}
 		}
 	}
+
+// donation
+.donationspage {
+	.pageSingleContentBox {
+		width: 100%;
+		// margin-top: 20px;
+	}
+	.donations {
+		width: 100%;
+		
+	}
+}
+
+.donateButton {
+		border: 1px solid black;
+		border-radius: 0;
+		text-align: right;
+    // width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    background: #75fb4c;
+    padding: 5px; 
+    float: right;
+    margin-bottom: 20px;
+    a:hover {
+    	border-bottom: none;
+    }
+}
 //single page 
 .textBoxStyling {
 	background: white;
@@ -821,16 +900,21 @@ body.whiteAll {
 	background: white;
 	width: 100%;
 	border: 1px solid black;
-	.titleWSSingle, .InsturctorName, .dateWSSingle, .timeWSSingle, .locationWSSingle {
+	.titleWSSingle, .InsturctorName, .dateWSSingle, .timeWSSingle, .locationWSSingle, .registrationWSSing {
 		@extend .flex; 
 		section {
 			padding: 10px;
 			border-bottom: 1px solid black;
-			width: 85%;
+			width: 70%;
 
 		}
+		.wssingleRegister {
+			p {
+				margin: 0;
+			}
+		}
 		.wsSingleTitle {
-			width: 15%;
+			width: 30%;
 			text-transform: uppercase;
 			border-right: 1px solid black;
 		}
@@ -840,6 +924,7 @@ body.whiteAll {
 		text-transform: uppercase;
 		background: #75fb4c;
 		padding: 5px 0;
+		margin: 0;
 
 	}
 
@@ -1587,12 +1672,12 @@ li.blackBack > a {
 			}
 		}
 		.workshopDetails {
-			.titleWSSingle ,.InsturctorName,.dateWSSingle, .timeWSSingle, .locationWSSingle { 
+			.titleWSSingle ,.InsturctorName,.dateWSSingle, .timeWSSingle, .locationWSSingle, .registrationWSSing { 
 				section {
-					width: 60%
+					width: 50%
 				}
 				.wsSingleTitle {
-					width: 40%;
+					width: 50%;
 				}
 			}
 		}

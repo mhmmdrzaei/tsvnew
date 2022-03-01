@@ -70,21 +70,23 @@
         <?php endif; ?>
       </section>
     </section>
+    <section class="registrationWSSing">
+      <section class="wsSingleTitle">Register</section>
+      <section class="wssingleRegister">
+        <?php the_field('register_information_workshops'); ?>
+      </section>
+    </section>
       
-    <?php
-    $field = get_field_object('registration_open_or_closed');
-    $value = $field['value'];
-    if( $value === 'Open' ): ?>
-      <?php if( have_rows('registeration_workshops' ) ): ?>
-          <?php while( have_rows('registeration_workshops') ): the_row();?>
-          <section class="registerLink">
-          <a href="<?php the_sub_field('registration_link'); ?>" target="_blank"><?php the_sub_field('registration_button_label'); ?></a>
-          </section>
-        <?php endwhile; ?>
-      <?php endif; ?>
-   <?php else: ; ?>
-    <p class="wsSingleFull">Sorry! You can no longer register.</p>
-  <?php endif; ?>
+      <?php
+      $field = get_field_object('registration_open_or_closed');
+      $value = $field['value'];
+      if( $value === 'Open' ): ?>
+            <p class="registerLink">
+              Registration is Open
+            </p>
+     <?php else: ; ?>
+      <p class="wsSingleFull">Sorry! You can no longer register.</p>
+    <?php endif; ?>
       
   </section>
       
