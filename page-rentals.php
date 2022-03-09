@@ -3,9 +3,15 @@
   
   <?php // Start the loop ?>
   <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-  <h1 class="pageTitle RentalPageTitle"><?php the_title(); ?></h1>
+  <h1 id="gearRental" class="pageTitle RentalPageTitle"><?php the_title(); ?></h1>
   <!-- <h1 class="pageTitle RentalPageTitle" id="page-title">Cameras</h1> -->
-
+  <section class="gearRequestForm">
+    <h2 >Gear Rental Request Form <span>╲╱</span></h2>
+    <section class="gearRequestFields">
+       <?php echo do_shortcode('[advanced_form form="form_622787ff68915"]'); ?>
+    </section>
+   
+  </section>
   <form class="gearSelection" action="">
       <h3><label for="gearOptions">Gear Category:</label></h3>
       <select name="gearOptions" id="gearOptions">

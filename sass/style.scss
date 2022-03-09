@@ -37,6 +37,10 @@ body {
 	font-weight: 300;
 	word-wrap: break-word;
 
+
+}
+input::selection {
+	background:#75fb4c;
 }
 main {
 	max-width: 1440px;
@@ -1102,8 +1106,162 @@ select {
 }
 .gearEachMore {
 	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 7;
+	height:100vh;
+
+}
+.gearMoreInner {
+	@extend .flex;
+	position: relative;
+	top: 15%;
+	// background: white;
+	width: 95%;
+	max-width: 1350px;
+	margin: 0 auto;
+	.gearTitle {
+		width: 100%;
+		height: 28px;
+		box-shadow: 0 0 0 1000px rgba(0,0,0,.6);
+
+		span {
+			position: relative;
+			top: -23px;
+			left: 7px;
+			cursor: pointer;
+		}
+	}
+	figure {
+		width: 32%;
+		border: 1px solid black;
+		padding: 40px;
+		background: white;
+	}
+	.gearinfoDesc {
+		overflow: scroll;
+		width: 68%;
+		background: white;
+		padding: 10px;
+		border: 1px solid black;
+		border-left: 0;
+		height: fit-content;
+		h4 {
+			margin: 0 0 5px;
+		}
+		.descriptionGear, .accInc {
+			margin-bottom: 10px;
+		}
+	}
+	button {
+		text-align: center;
+    text-transform: uppercase;
+    background: #75fb4c;
+    border: 1px solid black;
+    border-radius: 0;
+    padding: 5px;
+	}
+
 }
 
+.gearOpen {
+	display: block;
+}
+.af-label {
+	display: none;
+}
+.af-input label {
+	display: none;
+}
+.acf-fields > .acf-field {
+	padding: 0 !important;
+	border-top:none !important;
+}
+.acf-field .acf-label {
+	display: none;
+}
+.acf-fields.-border {
+	background: transparent !important;
+	border: none !important;
+}
+.acf-input-wrap input {
+	border: 1px solid black;
+	border-bottom: 0;
+	border-radius: 0;
+	min-height: 36px;
+}
+.acf-field textarea {
+	border: 1px solid black;
+	resize: none !important;
+		position: relative;
+	left: -1px;
+	border-bottom: 0;
+}
+#acf-field_622791b2859fd-field_62278a4f77499 {
+	border-bottom: 1px solid black;
+}
+.af-submit {
+	padding: 0 !important;
+	height: 0;
+	width: 30%;
+	button {
+		width: 100%;
+		background: #75fb4c;
+		padding: 5px;
+		border-radius: 0;
+		font-weight: 300;
+		text-transform: uppercase;
+		border: 1px solid black;
+		position: relative;
+		top: -35px;
+		min-height: 35px;
+	}
+}
+.acf-field .acf-notice.-error {
+	display: none !important;
+}
+.acf-notice {
+	margin: 0 !important;
+}
+.acf-spinner {
+margin-bottom: 25px;
+display: none !important;
+}
+.acf-form-fields {
+	@extend .flex;
+	.acf-field-622790f2859fa {
+		width: 30%;
+	}
+	.acf-field-622791b2859fd {
+		width: 70%;
+	}
+}
+.gearRequestForm {
+	margin-top: 20px;
+	 h2 {
+	 	background: #75fb4c;
+	 	text-align: center;
+	 	cursor: pointer;
+	 	width: calc(100% - 1px);
+	 	// border-bottom: 0;
+	 	span {
+	 		@include fontSize(5);
+	 		position: relative;
+	 		font-weight: 900;
+	 		left: 5px;
+	 		}
+	 }
+}
+.gearRequestFields {
+	display: none;
+	position: relative;
+	top: -1px;
+}
+.openForm {
+	display: block;
+}
 //loader 
 
 .lds-roller {
@@ -1680,6 +1838,42 @@ li.blackBack > a {
 					width: 50%;
 				}
 			}
+		}
+		.acf-form-fields {
+			display: block;
+			.acf-field-622790f2859fa, .acf-field-622791b2859fd,.af-submit {
+				width: 100%;
+			}
+		}
+		.acf-field textarea {
+			left: 0;
+		}
+		.af-submit button {
+			top: -1px;
+		}
+		.gearSelection {
+			margin: 20px 0;
+		}
+		.gearEachMore {
+			// position: absolute;
+		}
+		.gearMoreInner {
+			top: 2.5%;
+			.gearTitle {
+				box-shadow: none;
+			}
+			figure {
+				width: 100%;
+			}
+			.gearinfoDesc {
+				width: 100%;
+				border-left: 1px solid black;
+				border-top: 0;
+				max-height: 350px;
+			}
+		}
+		.openForm {
+			margin-bottom: 53px;
 		}
 	}
 	@media(max-width: 650px){ 

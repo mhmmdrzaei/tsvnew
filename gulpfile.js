@@ -70,7 +70,6 @@ function scripts() {
     }))
     .pipe(concat('main.min.js'))
     .pipe(uglify())
-    .pipe(babel())
     .pipe(gulp.dest('./js'))
     .pipe(reload({stream:true}));
 }

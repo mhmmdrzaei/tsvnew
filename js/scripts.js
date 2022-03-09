@@ -1,100 +1,214 @@
 
 "use strict"; 
 
+
 $(function(){
 
-var gear;
-
-
-	$.ajax({
-	url: 'https://tsv.amsnetwork.ca/api/v3/assets?type=Equipment&per_page=600',
-	type: 'GET',
-	beforeSend: function (xhr) {
-	    xhr.setRequestHeader('Authorization', 'Bearer ');
-	},
-	data: {
-	},
-	success: function (res) { 
-		console.log(res.assets);
-			$('.output').empty();
-
-		// window.myvar = res.assets;
-		// var gear;
-		let gear = 'Cameras';
-		$.each(res, function(index, value) { 
-			$("#gearOptions").on("change", function(){
-				console.log('test');
+		$.ajax({
+		url: 'https://tsv.amsnetwork.ca/api/v3/assets?type=Equipment&per_page=600',
+		type: 'GET',
+		beforeSend: function (xhr) {
+		    xhr.setRequestHeader('Authorization', 'Bearer ');
+		},
+		data: {
+		},
+		success: function (res) { 
+			// console.log(res.assets);
 				$('.output').empty();
-				const choice = $('select option:selected').text();
-				// $('#page-title').text(choice);
-			  var gearUpdate = $(this).val();
-			  var gear = gearUpdate;
-			  console.log(gear);			
-			  for(var i=0; i<1000; i++){
-				var available =value[i].status_text;
-				var name = value[i].name;
-				var catagory = value[i].category_name;
-				var image = value[i].photo_medium;
-				var description = value[i].description;
-				var external_url_resources = value[i].external_url_resources;
-				var included_accessories = value[i].included_accessories;
-				let price =  value[i].price_types;
-				// var priceDay = parseInt(price.replace(/[^0-9\.]/g, ''), 10);
+
+			// window.myvar = res.assets;
+			// var gear;
+			let gear = 'Cameras';
+			$.each(res, function(index, value) { 
+				$("#gearOptions").on("change", function(){
+					console.log('test');
+					$('.output').empty();
+					const choice = $('select option:selected').text();
+					// $('#page-title').text(choice);
+				  var gearUpdate = $(this).val();
+				  var gear = gearUpdate;
+				  console.log(gear);			
+				  for(var i=0; i<1000; i++){
+					var available =value[i].status_text;
+					var name = value[i].name;
+					var catagory = value[i].category_name;
+					var image = value[i].photo_medium;
+					var description = value[i].description || '';
+					var external_url_resources = value[i].external_url_resources;
+					var included_accessories = value[i].included_accessories || '';
+					let price =  value[i].price_types;
+
+					// var priceDay = parseInt(price.replace(/[^0-9\.]/g, ''), 10);
 
 
-				if ((catagory === gear) && (available === 'Active') ) {
-				var priceDay = parseInt(price.toString().replace(/[^0-9\.]/g, ''));
-				var PriceDayOne = priceDay * 1;
-				var priceWeek = priceDay * 3;
-				var priceMonth = priceDay * 16;
+					if ((catagory === gear) && (available === 'Active') ) {
+					var priceDay = parseInt(price.toString().replace(/[^0-9\.]/g, ''));
+					var PriceDayOne = priceDay * 1;
+					var priceWeek = priceDay * 3;
+					var priceMonth = priceDay * 16;
+					var artPieceHtml = `
+					  <article class="gearEach">
+					  <section class="gearEachInner">
+					    <h2>${name}</h2>
+					    <figure><img src="${image}"></figure>
+					    <section class="pricesection">
+					      <section class="priceDay">$${priceDay}/DAY</section>
+					      <section class="priceweek">$${priceWeek}/WEEK</section>
+					      <section class="priceMonth">$${priceMonth}/MONTH</section>
+					    </section>
+					    <button class="specsAvail">More Information</button>
+					  </section>  
+					  	 <section class="gearEachMore">
+					  	 <section class="gearMoreInner">
+					  	 	<section class="gearTitle">
+					  	 		<h2>${name}</h2>
+					  	 		<span>X</span>
+					  	 	</section>
+					  	 	<figure><img src="${image}"></figure>
+					  	 	<section class="gearinfoDesc">
+					  	 	${description ?`<section class="descriptionGear">
+					  	 	<h4>Description:</h4>${description}</section>` : ''} 
+					  	 	${included_accessories ?`<section class="accInc">
+					  	 	<h4>Accessories Included:</h4>${included_accessories}</section>` : ''} 
+					  	 	${external_url_resources ? `<a href="${external_url_resources}" target="_blank">Additional Gear Information</a>` : ''}
+					  	 	
+					  	 	<button class="openGCF">Open Gear Rental Request Form</button>
+					  	 	</section>
 
-					 $('.output').append('<article class="gearEach"><section class="gearEachInner"><h2>'+ name +'</h2><figure><img src="'+image+'"></figure><section class="pricesection"><section class="priceDay">$'+priceDay+'/DAY</section><section class="priceweek">$'+priceWeek+'/WEEK</section><section class="priceMonth">$'+priceMonth+'/MONTH</section></section><button class="specsAvail">More Information</button></section><section class="gearEachMore"><section class="descriptionGear"><h4>Description</h4>'+description+'</section><section class="accInc"><h4>Accessories Included</h4>'+included_accessories+'</section><a href="'+external_url_resources+'" target="_blank">Additional Gear Information(PDF)</a></section></article>' );
+
+					  	 </section>
+					   
+					   </section>
+					      
+					  </article>  
+
+					    `;
+
+						 $('.output').append(artPieceHtml);
+					}
+					// 
+					// console.log (name);
+					// $('.output').append(name);
+
 				}
-				// 
-				// console.log (name);
-				// $('.output').append(name);
 
-			}
+				  
+				  // gearApp.getPieces(gear);
+				  // gearApp.updateTitle();
+				});
+				for(var i=0; i<1000; i++){
+					var available =value[i].status_text;
+					var name = value[i].name;
+					var catagory = value[i].category_name;
+					var image = value[i].photo_medium;
+					var description = value[i].description || '';
+					var external_url_resources = value[i].external_url_resources || '';
+					var external_two = `<a href="${external_url_resources}" target="_blank">Additional Gear Information</a>` || '';
+					var included_accessories = value[i].included_accessories || '';
+					// var fullAccessories = `Hello ${included_accessories ? included_accessories : 'unknown'}`;
+					let price =  value[i].price_types;
 
-			  
-			  // gearApp.getPieces(gear);
-			  // gearApp.updateTitle();
+					if ((catagory === gear) && (available === 'Active') ) {
+					var priceDay = parseInt(price.toString().replace(/[^0-9\.]/g, ''));
+					var PriceDayOne = priceDay * 1;
+					var priceWeek = priceDay * 3;
+					var priceMonth = priceDay * 16;
+					var artPieceHtml = `
+					  <article class="gearEach">
+					  <section class="gearEachInner">
+					    <h2>${name}</h2>
+					    <figure><img src="${image}"></figure>
+					    <section class="pricesection">
+					      <section class="priceDay">$${priceDay}/DAY</section>
+					      <section class="priceweek">$${priceWeek}/WEEK</section>
+					      <section class="priceMonth">$${priceMonth}/MONTH</section>
+					    </section>
+					    <button class="specsAvail">More Information</button>
+					  </section>  
+					  	 <section class="gearEachMore">
+					  	 <section class="gearMoreInner">
+					  	 	<section class="gearTitle">
+					  	 		<h2>${name}</h2>
+					  	 		<span>X</span>
+					  	 	</section>
+					  	 	<figure><img src="${image}"></figure>
+					  	 	<section class="gearinfoDesc">
+					  	 	${description ?`<section class="descriptionGear">
+					  	 	<h4>Description:</h4>${description}</section>` : ''} 
+					  	 	${included_accessories ?`<section class="accInc">
+					  	 	<h4>Accessories Included:</h4>${included_accessories}</section>` : ''} 
+					  	 	${external_url_resources ? `<a href="${external_url_resources}" target="_blank">Additional Gear Information</a>` : ''}
+					  	 	
+					  	 	<button class="openGCF">Open Gear Rental Request Form</button>
+					  	 	</section>
+
+
+					  	 </section>
+					   
+					   </section>
+					      
+					  </article>  
+
+					    `;
+
+						 $('.output').append(artPieceHtml);
+					}
+
+					// 
+					// console.log (name);
+					// $('.output').append(name);
+
+				}
+				
 			});
-			for(var i=0; i<1000; i++){
-				var available =value[i].status_text;
-				var name = value[i].name;
-				var catagory = value[i].category_name;
-				var image = value[i].photo_medium;
-				var description = value[i].description;
-				var external_url_resources = value[i].external_url_resources;
-				var included_accessories = value[i].included_accessories;
-				let price =  value[i].price_types;
-
-				if ((catagory === gear) && (available === 'Active') ) {
-				var priceDay = parseInt(price.toString().replace(/[^0-9\.]/g, ''));
-				var PriceDayOne = priceDay * 1;
-				var priceWeek = priceDay * 3;
-				var priceMonth = priceDay * 16;
-					 $('.output').append('<article class="gearEach"><section class="gearEachInner"><h2>'+ name +'</h2><figure><img src="'+image+'"></figure><section class="pricesection"><section class="priceDay">$'+priceDay+'/DAY</section><section class="priceweek">$'+priceWeek+'/WEEK</section><section class="priceMonth">$'+priceMonth+'/MONTH</section></section><button class="specsAvail">More Information</button></section><section class="gearEachMore"><section class="descriptionGear"><h4>Description</h4>'+description+'</section><section class="accInc"><h4>Accessories Included</h4>'+included_accessories+'</section><a href="'+external_url_resources+'" target="_blank">Additional Gear Information(PDF)</a></section></article>' );
-				}
-
-				// 
-				// console.log (name);
-				// $('.output').append(name);
-
-			}
-			
-		});
 
 
-	},
-	error: function () { },
-	}).then(function() {
+		},
+		error: function () { },
+		}).then(function() {
 
+	    
+	 
+	});
+
+	$(document).on('click', '.gearEach', function(){ 
+    $(this).find('.gearEachMore').toggleClass('gearOpen');
+
+	}); 
+	$(document).on('click', '.gearTitle', function(){ 
+		$(this).find().parents().eq(1).removeClass('gearOpen');
     
- 
-});
+	}); 
 
+	$(document).on('click', '.openGCF', function(){ 
+	
+	if ($('.gearRequestFields').hasClass('openForm')) {
+
+	} else {
+		$('.gearRequestFields').addClass('openForm');
+	}
+    // $('.gearRequestFields').toggleClass('openForm');
+    $('html, body').animate({
+         scrollTop: $("#gearRental").offset().top
+     }, 1000);
+
+	}); 
+
+	$(document).on('click', '.copyName', function(){ 
+		value = $(this).data('clipboard-text'); 
+		console.log(value);
+		// value = $(this).data('clipboard-text'); 
+		// Temporary input tag to store text
+		var $temp = $("<input>");
+		$("body").append($temp);
+		// Selects text value
+		$temp.val(value).select();
+		// Copies text, removes temporary tag
+		document.execCommand("copy");
+		$temp.remove();
+	}); 
+
+		
 
 $('ul#archiveEach').each(function() {
   var $this = $(this);
@@ -289,6 +403,39 @@ if ((fontSizeCurr > 19) && ($(window).width() < 1050) && ($(window).width() > 75
 	$('.inspire').css('width','55%');
 	$('.accessMenuCover').css('width','45%');
 }
+
+$('.acf-field-6227895a77496 .acf-input input').attr('placeholder', 'Request Start Date');
+$('.acf-field-6227898c77497 .acf-input input').attr('placeholder', 'Request End Date');
+
+
+$('.gearRequestForm h2').on( 'click', function(){
+	$('.gearRequestFields').toggleClass('openForm');
+});
+
+
+$("a").on('click', function(event) {
+
+  // Make sure this.hash has a value before overriding default behavior
+  if (this.hash !== "") {
+    // Prevent default anchor click behavior
+    event.preventDefault();
+
+    // Store hash
+    var hash = this.hash;
+
+    // Using jQuery's animate() method to add smooth page scroll
+    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+    $('html, body').animate({
+      scrollTop: $(hash).offset().top
+    }, 800, function(){
+
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+    });
+  } // End if
+});
+
+
 
 
 });
