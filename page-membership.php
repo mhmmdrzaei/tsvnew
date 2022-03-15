@@ -24,9 +24,13 @@
                         <section class="membershipBoxInfo">
                           <?php the_sub_field('membership_option_info'); ?>
                         </section>
+                        <a href="<?php the_sub_field('membership_option_attachment'); ?>" target="_blank">
                         <section class="membershipBoxPrice">
-                          <?php the_sub_field('membership_price'); ?>
+                        
+                          <?php the_sub_field('membership_price'); ?>  
+                        
                         </section>
+                        </a>
                       </section>
 
                   <?php endwhile; ?>

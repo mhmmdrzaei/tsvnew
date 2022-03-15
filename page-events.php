@@ -23,7 +23,7 @@
   <article id="post-0" class="fullwidthpost" >
     <h2 class="entry-title">Not Found</h2>
      <section class="excerptPosts fullwidthexcerpts">
-      <p>Apologies, but no results were found!</p>
+      <p>Currently nothing is scheduled, stay tuned</p>
     </section><!-- .entry-content -->
   </article><!-- #post-0 -->
 

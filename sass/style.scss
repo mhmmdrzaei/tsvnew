@@ -455,6 +455,7 @@ body.whiteAll {
 			background: white;
 			tr td {
 				border: 1px solid black;
+
 			}
 		}
 	}
@@ -579,6 +580,9 @@ body.whiteAll {
 
 			@extend .membershipOptionsTable;
 			margin-bottom: 0;
+			table tbody tr td {
+				width: 33%;
+			}
 			table tbody tr td:nth-child(1) {
 				text-align: center;
 			}
@@ -642,7 +646,10 @@ body.whiteAll {
 .wp-block-column {
 	figure {
 			margin: 0;
-		border: 1px solid black;
+		// border: 1px solid black;
+		img {
+			border: 1px solid black;
+		}
 		// border-right: 0;
 		// position: relative;
 		// left: 1px;
@@ -725,6 +732,7 @@ body.whiteAll {
     padding: 5px; 
     float: right;
     margin-bottom: 20px;
+    width: 100%;
     a:hover {
     	border-bottom: none;
     }

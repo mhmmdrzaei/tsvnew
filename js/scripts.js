@@ -8,7 +8,7 @@ $(function(){
 		url: 'https://tsv.amsnetwork.ca/api/v3/assets?type=Equipment&per_page=600',
 		type: 'GET',
 		beforeSend: function (xhr) {
-		    xhr.setRequestHeader('Authorization', 'Bearer ');
+		    xhr.setRequestHeader('Authorization', 'Bearer 76804e015e15894372faf9623c8c036dd91661ab41fae379c4578abe28723dd7');
 		},
 		data: {
 		},
