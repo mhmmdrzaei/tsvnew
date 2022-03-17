@@ -359,6 +359,34 @@ function tsv_tags() {
 //     }
 // }
 
+// function wpse167989_posts_orderby( $orderby, $query ) {
+//     global $wpdb;
+//     // Strip all numbers & hyphens from title, and trim any leading spaces.
+//     return $wpdb->prepare(
+//         'LTRIM(' . str_repeat( 'REPLACE(', 11 ) . $wpdb->posts . '.post_title'
+//         . str_repeat( ', %s, %s)', 11 ) . ') ' . $query->get( 'order' )
+//         , 0, '', 1, '', 2, '', 3, '', 4, '', 5, '', 6, '', 7, '', 8, '', 9, '', '-', '' );
+// }
+// add_filter( 'posts_orderby', 'wpse167989_posts_orderby', 10, 2 );
+// $loop = new WP_Query( $args );
+// remove_filter( 'posts_orderby', 'wpse167989_posts_orderby', 10 );
+
+// add_filter( 'posts_orderby' , 'wpse_custom_orderby_statement' );
+// function wpse_custom_orderby_statement( $orderby ) {
+
+//   $orderby = " post_name+0<>0 ASC, post_name+0, post_name";
+
+//   return $orderby;
+// }
+
+function myComparison($a, $b){
+    if(is_numeric($a) && !is_numeric($b))
+        return 1;
+    else if(!is_numeric($a) && is_numeric($b))
+        return -1;
+    else
+        return ($a < $b) ? -1 : 1;
+} 
 /* is_blog() - checks various conditionals to figure out if you are currently within a blog page */
 function is_blog () {
 	global  $post;

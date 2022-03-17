@@ -8,16 +8,54 @@
 
    <?php $list = ''; 
    $tags = get_tags(); 
-   // echo '<ul id="portfolio-filter">'; 
-   // echo'<li><a href="#all" title="">All</a></li>';
+   // $tags = get_tags(array(
+   //   // 'taxonomy' => 'post_tag',
+   //   // 'name__like' => "a", 'order' => 'ASC'
+   //   // 'meta_value' => 'name',
+   //  'order' => 'asc',
+   //   'orderby' => 'title',
+
+   //   // 'meta_key'     => 'myComparison'
+   //   // 'orderby'     => 'meta_value',
+   //   // 'orderby'    => array(
+   //   //      'name' => 'ASC',
+   //   //      'post_date' => 'desc'
+   //   //    ),
+   //   // 'hide_empty' => false // for development,
+   // ));
+   // $array = array();
+   // foreach ($tags as $tag) { 
+   //  $firstLetter = $tag->name[0];
+   //  $array[$firstLetter][] = $sort;
+   //  usort($sort, 'myComparison');
+   // }
+    // usort($tags, 'myComparison');
+
+
+
    $groups = array();
+   
    if( $tags && is_array( $tags ) ) {
-   foreach( $tags as $tag ) {
-   $first_letter = strtoupper( $tag->name[0] );
-   $groups[ $first_letter ][] = $tag;}
+    // $tagName = $tags->name
+    // usort($tags, 'myComparison');
+
+   foreach ($tags as $tag) {
+
+    // $tagName = usort($tag->name,'myComparison');
+    usort(($firstLetter = $tag->name[0]),'myComparison');
+    
+   $first_letter = strtoupper( $firstLetter );
+   $groups[ $first_letter ][] = $tag;
+  
+ 
+ }
+
+ // usort($groups, 'myComparison');
    if( !empty( $groups ) ) {
    foreach( $groups as $letter => $tags ) {
+       usort($letter, 'myComparison');
    $list .= "\n\t" . '</ul><h2>' . apply_filters( 'the_title', $letter ) .'</h2>';
+
    $list .= "\n\t" . '</ul><ul id="archiveEach">';
    foreach( $tags as $tag ) {
    $lower = strtolower($tag->name);
@@ -25,7 +63,11 @@
    $naam = str_replace(' ', '-', $lower);
    $link = $tag->link;
    $list .= "\n\t\t" . '<li><a href="'.esc_attr( get_tag_link( $tag->term_id ) ).'">'.$name.'</a></li>';
-   }}}}else $list .= "\n\t" . '<p>Sorry, but no tags were found</p>';print $list;
+   }}}}else $list .= "\n\t" . '<p>Sorry, but no tags were found</p>';
+   // $list = intval($list);
+
+  
+   print_r( $list);
    ?>
 
   <?php endwhile; // end the loop?>
