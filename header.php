@@ -16,13 +16,13 @@
 
 <body <?php body_class(); ?>>
 
-<header >
+<header>
   <main class="headerMain">
-    <section class="headerInner">
+    <section class="headerInner" aria-label="Trinity Square Video organization logo and name, logo is animated">
       <a  class="logoLink"href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name', 'display' ); ?>" rel="home">
       <?php require 'template-parts/logo.php'; ?>
     </a>
-    <section class="headerDetails">
+    <section class="headerDetails" aria-label="Gallery Tag line Container">
       <section class="inspire">
         <?php $cars = get_field( 'rotating_page_tag','options' );  ?>
         <?php if( is_array( $cars ) ) { ?>
@@ -31,27 +31,22 @@
         <?php } ?>
         
       </section>
-      <button class="menuButtonMobile">Menu</button>
-          <section class="accessMenuCover">
-                <button class="access">Accessibility</button>
+      <button class="menuButtonMobile" aria-label="Mobile menu">Menu</button>
+          <section class="accessMenuCover" aria-label="Accessibility menu container">
+                <button class="access" aria-label="Accessibility menu, here you can adjust font size or desaturate page">Accessibility</button>
                 <section class="accessMenu">
                   <section class="fontSizeIncrease">
-      <!--               <section class="fontSizeRange">
-                    <p class="smallA">- A</p>
-                    <p class="largA">A +</p>
-                    </section>
-                    <input id="fontSizeRange" type="range" min="15" max="25" value=""> -->
-                    <button class="decreaseFont" value="decrease"> — </button>
-                    <button class="increaseFont" value="increase"> + </button>
+                    <button class="decreaseFont" value="decrease" aria-label="Decrease font size, measure by 1 px"> — </button>
+                    <button class="increaseFont" value="increase" aria-label="Increase font size, measure by 1 px"> + </button>
                     
                   </section>
-                  <section class="desaturateMenu">
+                  <section class="desaturateMenu" aria-label="Desaturate pages to white with black buttons and links">
                     <button class="desaturate">Desaturate Page</button>
                   </section>
             <!--       <section class="darkMode">
                     <button class="darkModeButton">Dark Mode</button>
                   </section> -->
-                  <section class="clearselections">
+                  <section class="clearselections" aria-label="Clear your inputs and revert to origional styling">
                     <button class="clearInputs">Clear Inputs</button>
                   </section>
                 </section>
@@ -59,14 +54,14 @@
 
     </section>
     </section>
-    <nav class="menuItems">
-      <section class="menuheadings">
+    <nav class="menuItems" aria-label="Primary website menu">
+      <section class="menuheadings" aria-label="Mobile menu heading with close button and gallery name">
         <section class="siteTitle">
           <section class="trinityMenu">Trinity</section>
           <section class="squareMenu">Square</section>
           <section class="videoMenu">Video</section>
         </section>
-        <button class="close">Close</button>
+        <button class="close" aria-label="close mobile menu">Close</button>
       </section>
       <?php wp_nav_menu( array(
           'container' => false,

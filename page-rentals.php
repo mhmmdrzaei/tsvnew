@@ -12,7 +12,7 @@
     </section>
    
   </section>
-  <form class="gearSelection" action="">
+  <form class="gearSelection" action="" aria-label="select gear type from drop down menu to see the listed gear items">
       <h3><label for="gearOptions">Gear Category:</label></h3>
       <select name="gearOptions" id="gearOptions">
         <option value="Cameras">Cameras</option>

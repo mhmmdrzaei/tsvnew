@@ -1,20 +1,20 @@
 <footer>    
   
   <main class="footerContainer">
-    <section class="contact">
+    <section class="contact" aria-label="Gallery Contact Information Container">
       <h2>Contact</h2>
-      <section class="galleryAddress">
+      <section class="galleryAddress" aria-label="Gallery Address">
         <?php the_field('gallery_address', 'options'); ?>
         <br>
-        <a href="mailto:<?php the_field('footer_email', 'options'); ?>"><?php the_field('footer_email', 'options'); ?></a>
+        <a href="mailto:<?php the_field('footer_email', 'options'); ?>" aria-label="Gallery Email Address"><?php the_field('footer_email', 'options'); ?></a>
       </section>
-      <section class="officeHours">
+      <section class="officeHours" aria-label="TSV Office Hours">
         <?php the_field('office_hours', 'options'); ?>
       </section>
-      <section class="galleryHours">
+      <section class="galleryHours" aria-label="Gallery Open Hours">
         <?php the_field('gallery_hours', 'options'); ?>
       </section>
-      <section class="socialLinks">
+      <section class="socialLinks" aria-label="Social Medial Links">
         <?php if( have_rows('social_links' , 'options') ): ?>
             <ul class="linksEach">
             <?php while( have_rows('social_links', 'options') ): the_row(); 
@@ -28,7 +28,7 @@
       </section>
     </section>
     
-    <section class="landAcknowledgement">
+    <section class="landAcknowledgement" aria-label="Gallery Land acknowledgement ">
       <a href="<?php the_field('land_acknowledgement_page_links_to', 'options'); ?>">
       <h2>land acknowledgement</h2>
       <section class="acknowledgementInner">
@@ -37,14 +37,14 @@
       </a>
     </section>
     
-    <section class="footermenu">
+    <nav class="footermenu" aria-label="Secondary Footer Menu">
       <h2>get involved</h2>
       <?php wp_nav_menu( array(
           'container' => false,
           'theme_location' => 'footer'
         )); ?>
-    </section>
-    <section class="mainlingList">
+    </nav>
+    <section class="mainlingList" aria-label="mailing list sign up form Container">
       <div id="mc_embed_signup">
       <form action="https://trinitysquarevideo.us5.list-manage.com/subscribe/post?u=6aa6475d61f473ec259544c43&amp;id=190c4f15d8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
           <div id="mc_embed_signup_scroll">
@@ -73,7 +73,7 @@
 
     </section>
     <?php if(get_field('funder_logos','options')): ?>
-    <section class="funders">
+    <section class="funders" aria-label="Gallery Funders">
       <h2>funders</h2>
       <section class="funderImages">
              <?php

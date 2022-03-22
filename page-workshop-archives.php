@@ -15,12 +15,12 @@
                 'start_date' => 'DSC',
                 'post_date' => 'desc'
               ),
-          'posts_per_page' => -1 );
+          'posts_per_page' =>20 );
       query_posts( $args ); // hijack the main loop
 
       if ( ! have_posts() ) : ?>
 
-  <article id="post-0" class="fullwidthpost" >
+  <article id="post-0" class="fullwidthpost" aria-label="no workshops listed here">
     <h2 class="entry-title">Not Found</h2>
      <section class="excerptPosts fullwidthexcerpts">
       <p>Apologies, but no results were found!</p>
@@ -32,23 +32,23 @@
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-    <article id="post-<?php the_ID(); ?>" class="fullwidthpost">
-      <h2 class="entry-title">
+    <article id="post-<?php the_ID(); ?>" class="fullwidthpost" aria-label="workshop item container">
+      <h2 class="entry-title" aria-label="workshop title">
         <a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
           <?php the_title(); ?>
         </a>
       </h2>
      <?php if ( has_post_thumbnail() ) { ?>
 
-      <figure class="sideImagePosts">
+      <figure class="sideImagePosts" aria-label="workshop image">
         <?php the_post_thumbnail('large');?>
       </figure>
-      <section class="excerptPosts">
+      <section class="excerptPosts" aria-label="workshop description excerpt">
     <?php }else {; ?>
-    <section class="excerptPosts fullwidthexcerpts">
+    <section class="excerptPosts fullwidthexcerpts" aria-label="workshop description excerpt">
    <?php  };?>
      <?php the_excerpt('Continue Reading'); ?>
-     <section class="ctaInternal">
+     <section class="ctaInternal" aria-label="additional links attached to workshop">
        <?php if( have_rows('cta_links' ) ): ?>
            <?php while( have_rows('cta_links') ): the_row(); 
 
@@ -74,11 +74,11 @@
 
 <?php endwhile; // End the loop. Whew. ?>
 
-<?php // Display navigation to next/previous pages when applicable ?>
+<!-- <?php // Display navigation to next/previous pages when applicable ?>
 <?php if (  $wp_query->max_num_pages > 1 ) : ?>
   <p class="alignleft"><?php next_posts_link('&laquo; Older Entries'); ?></p>
   <p class="alignright"><?php previous_posts_link('Newer Entries &raquo;'); ?></p>
-<?php endif; ?>
+<?php endif; ?> -->
    <?php wp_reset_query();?> 
 </main>
 

@@ -2,7 +2,7 @@
 
 
  <main>
-  <h1 class="pageTitle">Upcoming</h1>
+  <h1 class="pageTitle" aria-label="Upcoming Programming">Upcoming</h1>
   <?php // Start the loop ?>
 
     <?php $args = array( 'post_type' => 'programming', 
@@ -22,10 +22,10 @@
 
       if ( ! have_posts() ) : ?>
 
-  <article id="post-0" class="fullwidthpost" >
+  <article id="post-0" class="fullwidthpost" aria-label="No current upcoming programming listed container">
     <h2 class="entry-title">Not Found</h2>
      <section class="excerptPosts fullwidthexcerpts">
-      <p>Apologies, but no results were found!</p>
+      <p>Apologies, but no upcoming programming is listed at this moment</p>
     </section><!-- .entry-content -->
   </article><!-- #post-0 -->
 
@@ -34,23 +34,23 @@
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-    <article id="post-<?php the_ID(); ?>" class="fullwidthpost">
-      <h2 class="entry-title">
+    <article id="post-<?php the_ID(); ?>" class="fullwidthpost" aria-label="Upcoming Programming container">
+      <h2 class="entry-title" aria-label="Upcoming Programming title">
         <a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
           <?php the_title(); ?>
         </a>
       </h2>
      <?php if ( has_post_thumbnail() ) { ?>
 
-      <figure class="sideImagePosts">
+      <figure class="sideImagePosts" aria-label="Upcoming Programming accompanying image">
         <?php the_post_thumbnail('large');?>
       </figure>
-      <section class="excerptPosts">
+      <section class="excerptPosts" aria-label="brief information on the Upcoming Programming">
     <?php }else {; ?>
-    <section class="excerptPosts fullwidthexcerpts">
+    <section class="excerptPosts fullwidthexcerpts" aria-label=" brief information on the Upcoming Programming">
    <?php  };?>
      <?php the_excerpt('Continue Reading'); ?>
-     <section class="ctaInternal">
+     <section class="ctaInternal" aria-label="additional links for upcoming Programming">
        <?php if( have_rows('cta_links' ) ): ?>
            <?php while( have_rows('cta_links') ): the_row(); 
 

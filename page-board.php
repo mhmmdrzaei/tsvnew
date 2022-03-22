@@ -8,8 +8,8 @@
     <?php if( have_rows('staff_&_board') ): ?>
         <?php while( have_rows('staff_&_board') ): the_row(); 
             ?>
-        <section class="sbEach">
-        <h2><?php the_sub_field('person_name') ;
+        <section class="sbEach" aria-label="board member information container">
+        <h2 aria-label="board member name and title if applicable "><?php the_sub_field('person_name') ;
           $title = get_sub_field('person_title');
           if(!empty  ( $title)) :?> | <?php the_sub_field('person_title') ;endif ;?>
         </h2>
@@ -17,13 +17,13 @@
             <?php 
             $image = get_sub_field('person_image');
             if( !empty( $image ) ): ?>
-              <section class="sbImage">
+              <section class="sbImage" aria-label="image of board member">
                 <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-              </section><section class="sbBio">
+              </section><section class="sbBio" aria-label="board member bio">
                 <?php the_sub_field('person_bio'); ?>
               </section>
           <?php else: ; ?>
-          <section class="sbBioFull">
+          <section class="sbBioFull" aria-label="board member bio">
             <?php the_sub_field('person_bio'); ?>
           </section>
 
@@ -33,7 +33,7 @@
       
     <?php endif; ?>
     <?php if ( !empty( get_the_content() ) ){ ;?>
-      <section class="bodyText">
+      <section class="bodyText" aria-label="additional information">
          <?php the_content(); ?>
       </section>
     <?php };  ?>

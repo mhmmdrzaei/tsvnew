@@ -8,7 +8,7 @@
     <?php if( have_rows('membership_page_layout_options') ): ?>
         <?php while( have_rows('membership_page_layout_options') ): the_row(); ?>
           <?php if( get_row_layout() == 'info_text_box' ): ?>
-            <section class="membershipInfoBox">
+            <section class="membershipInfoBox" aria-label="membership information">
               <?php the_sub_field('membership_info_text_box'); ?>
             </section>
             
@@ -19,13 +19,13 @@
                   <?php while( have_rows('membership_option') ): the_row(); 
 
                       ?>
-                      <section class="membershipOptionBox">
-                        <h2><?php the_sub_field('membership_header'); ?></h2>
-                        <section class="membershipBoxInfo">
+                      <section class="membershipOptionBox" aria-label="membership option container">
+                        <h2 aria-label="membership tier"><?php the_sub_field('membership_header'); ?></h2>
+                        <section class="membershipBoxInfo" aria-label="information about membership tier">
                           <?php the_sub_field('membership_option_info'); ?>
                         </section>
                         <a href="<?php the_sub_field('membership_option_attachment'); ?>" target="_blank">
-                        <section class="membershipBoxPrice">
+                        <section class="membershipBoxPrice" aria-label="membership price attachment">
                         
                           <?php the_sub_field('membership_price'); ?>  
                         
@@ -38,7 +38,7 @@
               
 
             <?php elseif( get_row_layout() == 'membership_benefits_table' ): ?>
-              <section class="membershipOptionsTable">
+              <section class="membershipOptionsTable" aria-label="memberhip tier benefits table">
                 <?php
 
                 $table = get_sub_field( 'membership_benefits_table_table' );

@@ -1,7 +1,7 @@
 <?php get_header();  ?>
 
 <main class="pagePublications">
-  <h1 class="pageTitle"><?php the_title(); ?></h1>
+  <h1 class="pageTitle" aria-label="list of publications presented by the gallery"><?php the_title(); ?></h1>
   <?php // Start the loop ?>
 
     <?php $args = array( 'post_type' => 'publications', 
@@ -20,7 +20,7 @@
 
       if ( ! have_posts() ) : ?>
 
-  <article id="post-0" class="fullwidthpost" >
+  <article id="post-0" class="fullwidthpost" aria-label="no publications listed">
     <h2 class="entry-title">Not Found</h2>
      <section class="excerptPosts fullwidthexcerpts">
       <p>Apologies, but no results were found!</p>
@@ -32,14 +32,14 @@
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-    <article id="post-<?php the_ID(); ?>" class="PublicationPost">
-      <h2 class="entry-title">
+    <article id="post-<?php the_ID(); ?>" class="PublicationPost" aria-label="publicaiton item container">
+      <h2 class="entry-title" aria-label="publication title">
         <a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
           <?php the_title(); ?>
         </a>
       </h2>
 
-      <figure class="PubImagePosts">
+      <figure class="PubImagePosts" aria-label="publication cover">
         <?php the_post_thumbnail('large');?>
       </figure>
 

@@ -42,7 +42,7 @@
    foreach ($tags as $tag) {
 
     // $tagName = usort($tag->name,'myComparison');
-    usort(($firstLetter = $tag->name[0]),'myComparison');
+    // usort(($firstLetter = $tag->name[0]),'myComparison');
     
    $first_letter = strtoupper( $firstLetter );
    $groups[ $first_letter ][] = $tag;

@@ -1,6 +1,6 @@
 <?php get_header();  ?>
 
-<main class="homepageMain">
+<main class="homepageMain" aria-label="home page container">
   
   <?php // Start the loop ?>
   <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
@@ -12,7 +12,7 @@
                    <?php while( have_rows('message_banner_info') ): the_row(); ?>
 
                        
-                       <section class="homePageBanner">
+                       <section class="homePageBanner" aria-label="special message information">
                         <a  href="<?php the_sub_field('page_link_message_banner'); ?>">
                          <?php the_sub_field('message_banner_text'); ?>
                           </a>
@@ -30,18 +30,18 @@
                     $post = $featured_posts;
                     setup_postdata($post);
                  ?>
-                  <section class="fullwidthpost">
-                    <h2 class="entry-title">
+                  <section class="fullwidthpost" aria-label="featured information container">
+                    <h2 class="entry-title" aria-label="featured item title">
                       <a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
                         <?php the_title(); ?>
                       </a>
                     </h2>
-                    <figure class="sideImagePosts">
+                    <figure class="sideImagePosts" aria-label="featured item image">
                       <?php the_post_thumbnail('large');?>
                     </figure>
-                    <section class="excerptPosts">
+                    <section class="excerptPosts" aria-label="excerpt information on featured item">
                      <?php the_excerpt('Continue Reading'); ?>
-                     <section class="ctaInternal">
+                     <section class="ctaInternal" aria-label="additional links attached to the item">
                        <?php if( have_rows('cta_links' ) ): ?>
                            <?php while( have_rows('cta_links') ): the_row(); 
 
@@ -73,16 +73,16 @@
                               $post = $featured_posts;
                               setup_postdata($post);
                            ?>
-                            <section class="smallWidthContent">
-                              <h2 class="entry-title">
+                            <section class="smallWidthContent" aria-label="featured item container">
+                              <h2 class="entry-title" aria-label="featured item title">
                                 <a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
                                   <?php the_title(); ?>
                                 </a>
                               </h2>
-                              <figure class="sideImagePostsSM">
+                              <figure class="sideImagePostsSM" aria-label="featured information image">
                                 <?php the_post_thumbnail('large');?>
                               </figure>
-                              <section class="excerptPostsSM">
+                              <section class="excerptPostsSM" aria-label="featured information excerpt">
                                <?php the_excerpt('Continue Reading'); ?>
                                <section class="ctaInternal">
                                  <?php if( have_rows('cta_links' ) ): ?>
@@ -130,16 +130,16 @@
         <?php elseif( get_row_layout() == 'small_width_custom_content' ): ;?>
             <?php if( have_rows('custom_content_info') ): ?>
                 <?php while( have_rows('custom_content_info') ): the_row(); ?>
-                  <section class="smallWidthContent">
-                  <h2><?php the_sub_field('custom_content_header'); ?></h2>
-                  <figure class="sideImagePostsSM">
+                  <section class="smallWidthContent" aria-label="featured information container">
+                  <h2 aria-label="featured information title"><?php the_sub_field('custom_content_header'); ?></h2>
+                  <figure class="sideImagePostsSM" aria-label="featured information image">
                     <?php 
                     $image = get_sub_field('custom_content_image');
                     if( !empty( $image ) ): ?>
                         <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                     <?php endif; ?>
                   </figure>
-                  <section class="customContentInfo excerptPostsSM">
+                  <section class="customContentInfo excerptPostsSM" aria-label="featured information excerpt">
                     <?php the_sub_field('custom_content_info'); ?>
                     <section class="customContentCTAs ctaInternal">
                         <?php if( have_rows('content_ctas_custom_small') ): ?>

@@ -32,7 +32,7 @@
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-    <article id="post-<?php the_ID(); ?>" class="fullwidthpost">
+    <article id="post-<?php the_ID(); ?>" class="fullwidthpost" aria-label="event item container">
       <h2 class="entry-title">
         <a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
           <?php the_title(); ?>
@@ -40,15 +40,15 @@
       </h2>
      <?php if ( has_post_thumbnail() ) { ?>
 
-      <figure class="sideImagePosts">
+      <figure class="sideImagePosts" aria-label="accompanying image with event item">
         <?php the_post_thumbnail('large');?>
       </figure>
-      <section class="excerptPosts">
+      <section class="excerptPosts" aria-label="brief exceprt on event">
     <?php }else {; ?>
-    <section class="excerptPosts fullwidthexcerpts">
+    <section class="excerptPosts fullwidthexcerpts" aria-label="brief exceprt on event">
    <?php  };?>
      <?php the_excerpt('Continue Reading'); ?>
-     <section class="ctaInternal">
+     <section class="ctaInternal" aria-label="additional links attached to the event">
        <?php if( have_rows('cta_links' ) ): ?>
            <?php while( have_rows('cta_links') ): the_row(); 
 
@@ -75,10 +75,10 @@
 <?php endwhile; // End the loop. Whew. ?>
 
 <?php // Display navigation to next/previous pages when applicable ?>
-<?php if (  $wp_query->max_num_pages > 1 ) : ?>
+<!-- <?php if (  $wp_query->max_num_pages > 1 ) : ?>
   <p class="alignleft"><?php next_posts_link('&laquo; Older Entries'); ?></p>
   <p class="alignright"><?php previous_posts_link('Newer Entries &raquo;'); ?></p>
-<?php endif; ?>
+<?php endif; ?> -->
    <?php wp_reset_query();?> 
 </main>
 

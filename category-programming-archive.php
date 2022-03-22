@@ -1,7 +1,7 @@
 <?php get_header();  ?>
 
 <main>
-  <h1 class="pageTitle">Past</h1>
+  <h1 class="pageTitle" aria-label="Programming Archive">Past</h1>
   <?php // Start the loop ?>
 
     <?php $args = array( 'post_type' => 'programming', 
@@ -21,7 +21,7 @@
 
       if ( ! have_posts() ) : ?>
 
-  <article id="post-0" class="fullwidthpost" >
+  <article id="post-0" class="fullwidthpost" aria-label="There are no current programs listed here">
     <h2 class="entry-title">Not Found</h2>
      <section class="excerptPosts fullwidthexcerpts">
       <p>Apologies, but no results were found!</p>
@@ -33,23 +33,23 @@
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-    <article id="post-<?php the_ID(); ?>" class="fullwidthpost">
-      <h2 class="entry-title">
+    <article id="post-<?php the_ID(); ?>" class="fullwidthpost" aria-label="Program Container">
+      <h2 class="entry-title" aria-label="Title of Program">
         <a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
           <?php the_title(); ?>
         </a>
       </h2>
      <?php if ( has_post_thumbnail() ) { ?>
 
-      <figure class="sideImagePosts">
+      <figure class="sideImagePosts" aria-label="Image from Program">
         <?php the_post_thumbnail('large');?>
       </figure>
       <section class="excerptPosts">
     <?php }else {; ?>
-    <section class="excerptPosts fullwidthexcerpts">
+    <section class="excerptPosts fullwidthexcerpts" aria-label="Brief Information on Program">
    <?php  };?>
      <?php the_excerpt('Continue Reading'); ?>
-     <section class="ctaInternal">
+     <section class="ctaInternal" aria-label="Links to additional information related to this program">
        <?php if( have_rows('cta_links' ) ): ?>
            <?php while( have_rows('cta_links') ): the_row(); 
 

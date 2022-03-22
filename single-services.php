@@ -35,7 +35,7 @@
               
 
             <?php elseif( get_row_layout() == 'table_services' ): ?>
-              <section class="servicePriceTable">
+              <section class="servicePriceTable" aria-label="table with prices and details related to service">
                 <?php
 
                 $table = get_sub_field( 'services_information_table' );

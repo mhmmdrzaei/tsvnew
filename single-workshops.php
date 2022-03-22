@@ -26,16 +26,16 @@
   // if(!empty($row['oc_retailer']))
     if (!empty($instructor )) {
   ?>
-  <section class="workshopDetails">
-    <section class="titleWSSingle">
+  <section class="workshopDetails" aria-label="workshop details container">
+    <section class="titleWSSingle" aria-label="workshop title">
       <section class="wsSingleTitle">Workshop</section>
       <section class="titleWorkshop"><?php the_title(); ?></section>
     </section>
-    <section class="InsturctorName">
+    <section class="InsturctorName" aria-label="instructor">
       <section class="wsSingleTitle">Instructor</section>
       <section class="instructorNameFull"><?php the_field('instructor_workshops'); ?></section>
     </section>
-    <section class="dateWSSingle">
+    <section class="dateWSSingle" aria-label="workshop date">
       <section class="wsSingleTitle">Date</section>
       <section class="dateWSSingleInner">
         <?php 
@@ -48,13 +48,13 @@
             <?php endif; ?>
       </section>
     </section>
-    <section class="timeWSSingle">
+    <section class="timeWSSingle" aria-label="workshop time">
       <section class="wsSingleTitle">Time</section>
       <section class="wsSingleTime">
         <?php the_field('time_start_workshop'); ?> - <?php the_field('time_end_workshop'); ?>
       </section>
     </section>
-    <section class="locationWSSingle">
+    <section class="locationWSSingle" aria-label="workshop location">
       <section class="wsSingleTitle">Location</section>
       <section class="wsSingleLoca">
         <?php if( have_rows('location_workshps' ) ): ?>
@@ -70,7 +70,7 @@
         <?php endif; ?>
       </section>
     </section>
-    <section class="registrationWSSing">
+    <section class="registrationWSSing" aria-label="registration details">
       <section class="wsSingleTitle">Register</section>
       <section class="wssingleRegister">
         <?php the_field('register_information_workshops'); ?>
@@ -92,7 +92,7 @@
       
   </section>
 <?php }; ?>
-  <section class="bios">
+  <section class="bios" aria-label="Biographies of workshop organizers">
     <?php if( have_rows('biographies_copy' ) ): ?>
       <h3>Biographies:</h3>
         <?php while( have_rows('biographies_copy') ): the_row();  ?>
