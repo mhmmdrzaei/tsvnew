@@ -5,6 +5,7 @@
   <?php // Start the loop ?>
 
     <?php $args = array( 'post_type' => 'production', 
+      'category_name' => 'highlighted-outreach',
           // 'meta_key'      => 'start_date',
           // 'orderby'      => 'meta_value',
            'order'       => 'DESC',

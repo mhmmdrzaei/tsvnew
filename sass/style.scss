@@ -136,7 +136,7 @@ button {
 			border-radius: 0;
 		}
 		.accessMenuCover {
-			width: 29%;
+			width: 28%;
 			.access {
 				@include fontSize(9);
 				text-transform: uppercase;
@@ -1537,6 +1537,9 @@ li.blackBack > a {
 			h1 {
 				font-size: 1.5rem;
 			}
+		}
+		.headerMain .headerInner .headerDetails .accessMenuCover {
+		    // width: 29%;
 		}
 		// #menu-header-menu li {
 		// 			ul.sub-menu {

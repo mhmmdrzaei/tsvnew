@@ -5,6 +5,7 @@
   <?php // Start the loop ?>
 
     <?php $args = array( 'post_type' => 'events', 
+       'category_name' => 'highlighted-event',
           // 'meta_key'      => 'start_date',
           // 'orderby'      => 'meta_value',
            'order'       => 'DESC',
@@ -14,8 +15,7 @@
           'orderby'    => array(
                 'start_date' => 'DSC',
                 'post_date' => 'desc'
-              ),
-          'posts_per_page' => 20 );
+              ), );
       query_posts( $args ); // hijack the main loop
 
       if ( ! have_posts() ) : ?>

@@ -9,13 +9,13 @@
           'category_name' => 'upcoming-programming',
           // 'meta_key'      => 'start_date',
           // 'orderby'      => 'meta_value',
-           'order'       => 'ASC',
+           'order'       => 'desc',
           // 'orderby' => array(
           //    'meta_value_num' => 'desc',
           //    'post_date' => 'desc'
           'orderby'    => array(
                 'start_date' => 'DSC',
-                'post_date' => 'ASC'
+                'post_date' => 'desc'
               ),
           'posts_per_page' => -1 );
       query_posts( $args ); // hijack the main loop
