@@ -59,10 +59,26 @@
 @keyframes apearOneSec {
 	0% {
 		opacity: 0;
+
 	}
 
 	100% {
 		opacity: 1;
+	}
+}
+@keyframes apearOneSecBorder {
+	0% {
+		opacity: 0;
+		border-right: none;
+	}
+
+	75% {
+		opacity: 1;
+		border-right: 1px solid black;
+	}
+	100% {
+		opacity: 1;
+		border-right: none;
 	}
 }
 // @keyframes slideInFromLeft {
@@ -133,7 +149,7 @@ body.home {
 			animation: apearOneSec 1.5s normal forwards step-end;
 		}
 		.square {
-			animation: apearOneSec 1s normal forwards step-end;
+			animation: apearOneSecBorder 1.5s normal forwards step-end;
 		}
 	}
 	.logo .words {
@@ -141,14 +157,14 @@ body.home {
 			animation: apearOneSec .5s normal forwards step-end;
 		}
 		.squareWord {
-			border-right: 1px solid;
-			animation: apearOneSec 1s normal forwards step-end;
+			// border-right: 1px solid;
+			animation: apearOneSecBorder 1.5s normal forwards step-end;
 
 		}
 		.video {
 			animation: apearOneSec 1.5s normal forwards step-end;
-			position: relative;
-			left: -1px;
+			// position: relative;
+			// left: -1px;
 
 
 		}

@@ -64,10 +64,10 @@
         <?php 
             $startDate = get_field('date_start_workshop');
             $endDate = get_field('date_end_workshop');
-            if( !empty( $endDate ) ): ?>
+            if( !empty( $startDate ) ): ?>
                <?php the_field('date_start_workshop');?> - <?php the_field('date_end_workshop'); ?><br>
             <?php else: ; ?>
-             <?php the_field('date_start_workshop');?></br>
+             <?php the_field('date_end_workshop');?></br>
             <?php endif; ?>
               <?php the_field('time_start_workshop'); ?> - <?php the_field('time_end_workshop'); ?>
       </section>

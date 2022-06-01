@@ -22,6 +22,19 @@
     </section>
 
   </section>
+  <section class="bios" aria-label="Biographies of workshop organizers">
+    <?php if( have_rows('biographies_copy2' ) ): ?>
+      <h3>Biographies:</h3>
+        <?php while( have_rows('biographies_copy2') ): the_row();  ?>
+        <section class="bioEach">
+          <h4><?php the_sub_field('artist__participant_name_pub'); ?></h4>
+          <section class="participantBio">
+            <?php the_sub_field('artist__participant_bio_pub'); ?>
+          </section>
+        </section>
+      <?php endwhile; ?>
+    <?php endif; ?>
+  </section>
 
   <?php endwhile; // end of the loop. ?>
 </main>

@@ -130,7 +130,7 @@ add_filter( 'wp_page_menu_args', 'project_page_menu_args' );
  * Sets the post excerpt length to 40 characters.
  */
 function project_excerpt_length( $length ) {
-	return 120;
+	return 65;
 }
 add_filter( 'excerpt_length', 'project_excerpt_length' );
 
@@ -149,6 +149,8 @@ function project_auto_excerpt_more( $more ) {
 }
 add_filter( 'excerpt_more', 'project_auto_excerpt_more' );
 
+
+
 /**
  * Adds a pretty "Continue Reading" link to custom post excerpts.
  */
@@ -159,6 +161,42 @@ function project_custom_excerpt_more( $output ) {
 	return $output;
 }
 add_filter( 'get_the_excerpt', 'project_custom_excerpt_more' );
+
+
+
+
+ define('EXCERPT_RARELY', '{[}]');
+ define('EXCERPT_BR', nl2br(PHP_EOL));
+
+ function so306588_trim_excerpt_custom($text = '')
+ {
+     add_filter('the_content', 'so306588_trim_excerpt_custom_mark', 6);
+
+     // get through origin filter
+     $text = wp_trim_excerpt($text);
+
+     remove_filter('the_content', 'so306588_trim_excerpt_custom_mark', 6);
+
+     return so306588_trim_excerpt_custom_restore($text);
+ }
+
+ function so306588_trim_excerpt_custom_mark($text)
+ {
+     $text = nl2br($text);
+     return str_replace(EXCERPT_BR, EXCERPT_RARELY, $text);
+ }
+
+ function so306588_trim_excerpt_custom_restore($text)
+ {
+     return str_replace(EXCERPT_RARELY, EXCERPT_BR, $text);
+ }
+
+ // remove default filter
+ remove_filter('get_the_excerpt', 'wp_trim_excerpt');
+
+ // add custom filter
+ add_filter('get_the_excerpt', 'so306588_trim_excerpt_custom'); 
+
 
 
 /*
@@ -263,8 +301,8 @@ function pre_r($obj) {
 if( function_exists('acf_add_options_page') ) {
 	
 	acf_add_options_page(array(
-		'page_title' 	=> 'Gallery General Information',
-		'menu_title'	=> 'Gallery Information',
+		'page_title' 	=> 'Organization General Information',
+		'menu_title'	=> 'Organization Information',
 		'menu_slug' 	=> 'theme-general-settings',
 		'capability'	=> 'edit_posts',
 		'icon_url' => 'dashicons-email-alt2',
