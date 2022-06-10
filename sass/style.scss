@@ -847,6 +847,7 @@ body.whiteAll {
 
 .currentWorkshop {
 	 @extend .flex;
+	 margin-bottom: 20px;
 	 h2 {
 	 	width: calc(100% - 4px);
 	 }
@@ -968,7 +969,7 @@ body.whiteAll {
 		@extend .textBoxStyling;
 		figure {
 			max-width: 95% !important;
-			margin: 0 auto;
+			margin: 10px auto;
 		}
 		.tagList {
 			@extend .flex;
@@ -1206,6 +1207,7 @@ select {
 		position: relative;
 	left: -1px;
 	border-bottom: 0;
+	max-height: 108px !important;
 }
 #acf-field_622791b2859fd-field_62278a4f77499 {
 	border-bottom: 1px solid black;
@@ -1269,6 +1271,13 @@ display: none !important;
 }
 .openForm {
 	display: block;
+}
+.af-success {
+	background: white;
+	display: block;
+	padding: 10px;
+	border: 1px solid black;
+	width: calc(100% - 1px);
 }
 //loader 
 
