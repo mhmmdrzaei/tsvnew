@@ -10,18 +10,18 @@
             'relation' => 'AND',
           'start_clause' => array(
                 'key'   => 'date_start_workshop',
-                'compare' => '<=',
+                'compare' => '>=',
                 'value'   => $today
             ),
             'end_clause' => array(
-                'key'   => 'date_end_workshop',
+                'key'   => 'date_start_workshop',
                 'compare' => '>=',
                 'value'   => $today
             )
           ),
           'orderby' => array(
               'meta_value_num' => 'asc',
-              'post_date' => 'desc'
+              'post_date' => 'asc'
           ),
           'posts_per_page' => -1
           // 'orderby' => 'meta_value_num',
@@ -64,10 +64,10 @@
         <?php 
             $startDate = get_field('date_start_workshop');
             $endDate = get_field('date_end_workshop');
-            if( !empty( $startDate ) ): ?>
+            if( !empty( $endDate ) ): ?>
                <?php the_field('date_start_workshop');?> - <?php the_field('date_end_workshop'); ?><br>
             <?php else: ; ?>
-             <?php the_field('date_end_workshop');?></br>
+             <?php the_field('date_start_workshop');?></br>
             <?php endif; ?>
               <?php the_field('time_start_workshop'); ?> - <?php the_field('time_end_workshop'); ?>
       </section>
