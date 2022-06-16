@@ -41,10 +41,10 @@
         <?php 
             $startDate = get_field('date_start_workshop');
             $endDate = get_field('date_end_workshop');
-            if( !empty( $startDate ) ): ?>
+            if( !empty( $endDate ) ): ?>
                <?php the_field('date_start_workshop');?> - <?php the_field('date_end_workshop'); ?><br>
             <?php else: ; ?>
-             <?php the_field('date_end_workshop');?></br>
+             <?php the_field('date_start_workshop');?></br>
             <?php endif; ?>
       </section>
     </section>

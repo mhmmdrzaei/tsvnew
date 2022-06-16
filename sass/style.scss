@@ -855,6 +855,7 @@ body.whiteAll {
 	 	width: 40%;
 	 	@extend .textBoxStyling;
 	 	padding: 5px;
+	 	height: fit-content;
 	 }
 
 	 .instructorWSHome, .locationWSHome, .dateTimeWSHome{
@@ -966,6 +967,7 @@ body.whiteAll {
 		width: 50%;
 		position: relative;
 		left: -1px;
+		height: fit-content;
 		@extend .textBoxStyling;
 		figure {
 			max-width: 95% !important;
