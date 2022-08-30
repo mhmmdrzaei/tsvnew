@@ -45,7 +45,7 @@ $(function(){
 					var priceDay = parseInt(price.toString().replace(/[^0-9\.]/g, ''));
 					var PriceDayOne = priceDay * 1;
 					var priceWeek = priceDay * 3;
-					var priceMonth = priceDay * 16;
+					var priceMonth = priceDay * 12;
 					var artPieceHtml = `
 					  <article class="gearEach">
 					  <section class="gearEachInner">
@@ -112,7 +112,7 @@ $(function(){
 					var priceDay = parseInt(price.toString().replace(/[^0-9\.]/g, ''));
 					var PriceDayOne = priceDay * 1;
 					var priceWeek = priceDay * 3;
-					var priceMonth = priceDay * 16;
+					var priceMonth = priceDay * 12;
 					var artPieceHtml = `
 					  <article class="gearEach">
 					  <section class="gearEachInner">
