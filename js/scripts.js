@@ -44,8 +44,8 @@ $(function(){
 					if ((catagory === gear) && (available === 'Active') ) {
 					var priceDay = parseInt(price.toString().replace(/[^0-9\.]/g, ''));
 					var PriceDayOne = priceDay * 1;
-					var priceWeek = priceDay * 3;
-					var priceMonth = priceDay * 12;
+					var priceWeek = priceDay * 4;
+					var priceMonth = priceDay * 16;
 					var artPieceHtml = `
 					  <article class="gearEach">
 					  <section class="gearEachInner">
@@ -111,8 +111,8 @@ $(function(){
 					if ((catagory === gear) && (available === 'Active') ) {
 					var priceDay = parseInt(price.toString().replace(/[^0-9\.]/g, ''));
 					var PriceDayOne = priceDay * 1;
-					var priceWeek = priceDay * 3;
-					var priceMonth = priceDay * 12;
+					var priceWeek = priceDay * 4;
+					var priceMonth = priceDay * 16;
 					var artPieceHtml = `
 					  <article class="gearEach">
 					  <section class="gearEachInner">
